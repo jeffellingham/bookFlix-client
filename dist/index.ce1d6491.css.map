@@ -1,0 +1,1 @@
+{"mappings":"AAGA","sources":["src/index.scss"],"sourcesContent":["\r\n$color: rgb(62, 148, 126);\r\n\r\n.book-flix {\r\n  color: $color;\r\n}"],"names":[],"version":3,"file":"index.ce1d6491.css.map","sourceRoot":"/__parcel_source_root/"}
