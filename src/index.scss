@@ -4,7 +4,6 @@ $bgColor: skyblue;
 
 html {
   color: $color;
-  font-weight: bold;
   font-size: 24px;
   background-color: $bgColor;
 }
@@ -21,4 +20,11 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 75%;
+  margin: auto;
+}
+
+.movieCard, span:first-of-type {
+  font-weight: bold;
 }
