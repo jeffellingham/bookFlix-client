@@ -1,7 +1,7 @@
 html {
   color: #000;
   background-color: #87ceeb;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 img {
@@ -21,8 +21,32 @@ img {
   display: flex;
 }
 
-.movieCard, span:first-of-type {
+.movieCard, .movieviewContent span:first-of-type {
   font-weight: bold;
+}
+
+.movieCard__year {
+  font-size: .8em;
+  font-style: italic;
+  font-weight: 100;
+}
+
+.movieCard {
+  text-align: center;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  margin: 10px;
+  display: flex;
+}
+
+.cardContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px;
+  line-height: .95em;
+  display: flex;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

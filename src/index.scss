@@ -4,7 +4,7 @@ $bgColor: skyblue;
 
 html {
   color: $color;
-  font-size: 24px;
+  font-size: 20px;
   background-color: $bgColor;
 }
 
@@ -25,6 +25,30 @@ img {
   margin: auto;
 }
 
-.movieCard, span:first-of-type {
+.movieCard, .movieviewContent span:first-of-type {
   font-weight: bold;
+}
+
+.movieCard__year {
+  font-style: italic;
+  font-weight: 100;
+  font-size: 0.8em;    
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: .95em;
+  margin: 50px;
+  justify-content: center;
 }
