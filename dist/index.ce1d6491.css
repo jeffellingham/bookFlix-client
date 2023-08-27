@@ -1,28 +1,124 @@
-html {
+* {
+  box-sizing: border-box;
+}
+
+body {
   color: #000;
-  background-color: #87ceeb;
-  font-size: 24px;
+  background-color: #9ab8abcc;
+  margin: 0;
+  font-size: 20px;
 }
 
-img {
-  height: 150px;
-}
-
-.movieviewImg {
-  height: 400px;
-}
-
-.movieviewContent {
-  text-align: center;
+header {
   flex-direction: column;
-  align-items: center;
-  width: 75%;
-  margin: auto;
+  align-items: flex-start;
+  margin: 10px;
   display: flex;
 }
 
-.movieCard, span:first-of-type {
+h1, .subtitle {
+  text-align: center;
+  margin: 0;
+  line-height: .97em;
+}
+
+img {
+  height: 175px;
+}
+
+.movieviewContent img {
+  height: 500px;
+}
+
+.cardContainer img {
+  height: 250px;
+}
+
+.movieviewContent {
+  align-items: center;
+  margin: 50px;
+  display: flex;
+}
+
+.movieviewInfo {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 50px;
+  font-size: 18px;
+  line-height: 1.2em;
+  display: flex;
+}
+
+.movieviewInfo div:nth-child(odd) {
+  margin: 12px 0;
+}
+
+.movieViewContainer h2 {
+  margin: 0;
+}
+
+.movieviewContent span:first-of-type, .movieviewInfo strong {
+  font-size: 20px;
   font-weight: bold;
+}
+
+.movieCard__year {
+  font-size: .8em;
+  font-style: italic;
+  font-weight: 100;
+}
+
+.movieCard {
+  text-align: center;
+  cursor: pointer;
+  background-color: #b8b5b580;
+  border: 2px solid #556b2f;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  padding: 10px 5px;
+  font-weight: bold;
+  display: flex;
+}
+
+.similarMovies .movieCard {
+  width: 150px;
+  margin: 0;
+}
+
+.cardContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px;
+  line-height: .95em;
+  display: flex;
+}
+
+.similarMovies {
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: .95em;
+  display: flex;
+  overflow: auto;
+}
+
+.movieCard:hover {
+  background-color: #b8b5b5cc;
+}
+
+.movieViewContainer button {
+  border-radius: 5px;
+  align-self: center;
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+}
+
+@media (width <= 1000px) {
+  .movieviewContent {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
