@@ -1,32 +1,82 @@
+// TODO: User stories: 1. Make the back to mainview button more prominent (add escape button key?)
+// TODO: 2. Add buttons to navigate to the next and previous movie
+// TODO: 3. Should I sort the movies? By highest rated? 
+// TODO: 4. I should definitely add a sort function (By year, title, rating(if I add it), what else?) and a filter/search function 
+// TODO: 5. Each movie page will have similar movies based on genre, director, actor(s), anything else?
+// TODO: 6. Add a rating parameter to the movieview
 
 $color: black;
-$bgColor: skyblue;
+$bgColor: rgba(154, 184, 171, 0.8);
 
-html {
+/*-----------GENERAL-------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
   color: $color;
   font-size: 20px;
   background-color: $bgColor;
 }
 
-img {
-  height: 150px;
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
 }
 
-.movieviewImg {
-  height: 400px;
+h1, .subtitle {
+  margin: 0;
+  text-align: center;
+  line-height: .97em;
+}
+
+/*-----------MOVIE VIEW-------------*/
+
+img {
+  height: 175px;
+}
+
+.movieviewContent img {
+  height: 500px;
+}
+
+.cardContainer img {
+  height: 250px;
 }
 
 .movieviewContent {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  width: 75%;
-  margin: auto;
+  // text-align: justify;
+  // width: 75%;
+  margin: 50px;
 }
 
-.movieCard, .movieviewContent span:first-of-type {
+.movieviewInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 50px;
+  font-size: 18px;
+  line-height: 1.2em;
+}
+
+.movieviewInfo div:nth-child(odd) {
+  margin: 12px 0;
+}
+
+.movieViewContainer h2 {
+  margin: 0;
+  // text-align: center;
+}
+
+.movieviewContent span:first-of-type, .movieviewInfo strong {
   font-weight: bold;
+  font-size: 20px;
 }
 
 .movieCard__year {
@@ -40,9 +90,19 @@ img {
   flex-direction: column;
   align-items: center;
   width: 250px;
-  margin: 10px;
+  border: 2px solid darkolivegreen;
+  border-radius: 5px;
+  // margin: 10px;
+  padding: 10px 5px;
   text-align: center;
   cursor: pointer;
+  background-color: rgba(184, 181, 181, 0.5);
+  font-weight: bold;
+}
+
+.similarMovies .movieCard {
+  width: 150px;
+  margin: 0;
 }
 
 .cardContainer {
@@ -51,4 +111,33 @@ img {
   line-height: .95em;
   margin: 50px;
   justify-content: center;
+}
+
+.similarMovies {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: .95em;
+  justify-content: center;
+  overflow: auto;
+  // margin: 50px;
+}
+
+.movieCard:hover {
+  background-color: rgba(184, 181, 181, 0.8);
+}
+
+.movieViewContainer button {
+  margin: 10px;
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  align-self: center;
+}
+
+/* ------------MEDIA QUERIES---------------*/
+@media (max-width: 1000px) {
+  .movieviewContent {
+    flex-direction: column;
+  }
+
 }

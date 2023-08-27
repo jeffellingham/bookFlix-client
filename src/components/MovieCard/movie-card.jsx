@@ -22,14 +22,6 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
     releaseYear: PropTypes.number.isRequired,
-    genre: PropTypes.shape({
-      name: PropTypes.string.isRequired
-    }),
-    description: PropTypes.string.isRequired,
-    director: PropTypes.shape({
-      name: PropTypes.string.isRequired
-    }),
-    actors: PropTypes.array
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 }
