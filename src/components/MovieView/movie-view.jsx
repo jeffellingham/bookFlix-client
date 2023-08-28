@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 
 export const MovieView = ({ movie, onBackClick }) => {
   actorString = "";
-  if (movie.actors.length > 1){
-    for (let i =0; i < movie.actors.length; i++) {
+  if (movie.actors.length > 1) {
+    for (let i = 0; i < movie.actors.length; i++) {
       if (i === movie.actors.length - 1) {
         actorString += movie.actors[i] + ".";
       } else {
@@ -15,7 +15,7 @@ export const MovieView = ({ movie, onBackClick }) => {
     <div className="movieviewContent">
       {/* <button onClick={onBackClick}>Back</button> */}
       <div className="movieviewImgContainer">
-        <img src={movie.imagePath} alt="Movie Poster" className="movieviewImg"/>
+        <img src={movie.imagePath} alt="Movie Poster" className="movieviewImg" />
       </div>
       <div className="movieviewInfo">
         <div>
@@ -44,10 +44,15 @@ export const MovieView = ({ movie, onBackClick }) => {
         </div>
         <div>
           <span>Based on: </span>
-          <span>{movie.book.title}</span>
-          <div><strong> By:</strong> {movie.book.author}</div>
+          <div>
+            <span>Title: </span>
+            <span> {movie.book.title}</span>
+            <span>
+              <strong> By:</strong> {movie.book.author}
+            </span>
+          </div>
         </div>
-      <button onClick={onBackClick}>Back</button>
+        <button onClick={onBackClick}>Back</button>
       </div>
     </div>
   );
@@ -59,17 +64,17 @@ MovieView.propTypes = {
     imagePath: PropTypes.string.isRequired,
     releaseYear: PropTypes.number.isRequired,
     genre: PropTypes.shape({
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
     }),
     description: PropTypes.string.isRequired,
     director: PropTypes.shape({
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
     }),
     actors: PropTypes.array,
     book: PropTypes.shape({
       title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired
-    })
+      author: PropTypes.string.isRequired,
+    }),
   }).isRequired,
-  onBackClick: PropTypes.func.isRequired
-}
+  onBackClick: PropTypes.func.isRequired,
+};
