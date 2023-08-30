@@ -1,12 +1,15 @@
+// ! Test account info: username: countChocola password: loveyou<3000
 // TODO: User stories: 1. Make the back to mainview button more prominent (add escape button key?)
 // TODO: 2. Add buttons to navigate to the next and previous movie
-// TODO: 3. Should I sort the movies? By highest rated? 
+// TODO: 3. Should I sort the movies? By highest rated? Just Alphabetical until user manually sorts by the metric they desire?
 // TODO: 4. I should definitely add a sort function (By year, title, rating(if I add it), what else?) and a filter/search function 
 // TODO: 5. Each movie page will have similar movies based on genre, director, actor(s), anything else?
-// TODO: 6. Add a rating parameter to the movieview
+// TODO: 6. Add a rating parameter to the movie info?
+// TODO: 7. Add a sidebar to all pages that shows the user's top 10(?) movies (top 10 rated? I guess I could add another parameter to the favoriteMovies list (maybe have to make it an object? So each movie on favorite list has the movie id and/or title, and the user's rating (or a default of null)), or I can just make it so they can change the order of the movies in their favorite list and render the top 10 based on that order).
+// TODO: 8. Could I add a recommended movies list based off of a user's favorite movies? Like, people who favorited X movie also favorited Y and Z. This seems pretty high level for me
 
 $color: black;
-$bgColor: rgba(154, 184, 171, 0.8);
+$bgColor: rgba(199, 247, 227, 0.6);
 
 /*-----------GENERAL-------------*/
 
@@ -21,11 +24,22 @@ body {
   background-color: $bgColor;
 }
 
-header {
+header .logo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid darkolivegreen;
+  // position: fixed;
+  // width: 100%;
+  // top: 0;
+  // padding: 10px;
+  // z-index: 1;
 }
 
 h1, .subtitle {
@@ -111,6 +125,7 @@ img {
   line-height: .95em;
   margin: 50px;
   justify-content: center;
+  gap: 10px;
 }
 
 .similarMovies {
@@ -120,13 +135,19 @@ img {
   justify-content: center;
   overflow: auto;
   // margin: 50px;
+  margin-bottom: 10px;
+}
+
+.similarMoviesContainer h2 {
+  border-top: 2px solid darkolivegreen;
+
 }
 
 .movieCard:hover {
   background-color: rgba(184, 181, 181, 0.8);
 }
 
-.movieViewContainer button {
+.movieViewContainer button, button {
   margin: 10px;
   width: 200px;
   height: 30px;
