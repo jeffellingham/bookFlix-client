@@ -4,15 +4,21 @@
 
 body {
   color: #000;
-  background-color: #9ab8abcc;
+  background-color: #c7f7e399;
   margin: 0;
   font-size: 20px;
 }
 
-header {
+header .logo {
   flex-direction: column;
   align-items: flex-start;
   margin: 10px;
+  display: flex;
+}
+
+header {
+  border-bottom: 2px solid #556b2f;
+  justify-content: space-between;
   display: flex;
 }
 
@@ -90,6 +96,7 @@ img {
 .cardContainer {
   flex-wrap: wrap;
   justify-content: center;
+  gap: 10px;
   margin: 50px;
   line-height: .95em;
   display: flex;
@@ -98,16 +105,21 @@ img {
 .similarMovies {
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px;
   line-height: .95em;
   display: flex;
   overflow: auto;
+}
+
+.similarMoviesContainer h2 {
+  border-top: 2px solid #556b2f;
 }
 
 .movieCard:hover {
   background-color: #b8b5b5cc;
 }
 
-.movieViewContainer button {
+.movieViewContainer button, button {
   border-radius: 5px;
   align-self: center;
   width: 200px;
