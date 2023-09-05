@@ -1,0 +1,35 @@
+
+// header .logo {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   margin: 10px;
+// }
+
+
+button {
+  margin: 10px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  align-self: center;
+  background-color: seagreen;
+  font-weight: 900;
+}
+
+.navbar-brand{
+  display: flex;
+  flex-direction: column;
+  line-height: .97em;
+}
+
+// .navbar-container {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// @media all and (max-width: 450px) {
+
+  
+// }
+
+@import '~bootstrap/scss/bootstrap.scss';
