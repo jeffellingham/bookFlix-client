@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import "./movie-view.scss";
+import { Col, Row } from "react-bootstrap";
 
 export const MovieView = ({ movie, onBackClick }) => {
   actorString = "";
@@ -12,48 +14,50 @@ export const MovieView = ({ movie, onBackClick }) => {
     }
   }
   return (
-    <div className="movieviewContent">
+    <div className="movieViewContainer">
       {/* <button onClick={onBackClick}>Back</button> */}
-      <div className="movieviewImgContainer">
+      <Col className="movieviewImgContainer md={6}">
         <img src={movie.imagePath} alt="Movie Poster" className="movieviewImg" />
-      </div>
-      <div className="movieviewInfo">
-        <div>
+      </Col>
+      <Col className="movieviewInfo md={6}">
+        <div className="movieviewInfo-containers">
           <span>Title: </span>
-          <div>{movie.title}</div>
+          <div className="movieviewDeets">{movie.title}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Year released: </span>
-          <div>{movie.releaseYear}</div>
+          <div className="movieviewDeets">{movie.releaseYear}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Genre: </span>
-          <div>{movie.genre.name}</div>
+          <div className="movieviewDeets">{movie.genre.name}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Description: </span>
-          <div>{movie.description}</div>
+          <div className="movieviewDeets">{movie.description}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Director: </span>
-          <div>{movie.director.name}</div>
+          <div className="movieviewDeets">{movie.director.name}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Actors: </span>
-          <div>{actorString}</div>
+          <div className="movieviewDeets">{actorString}</div>
         </div>
-        <div>
+        <div className="movieviewInfo-containers">
           <span>Based on: </span>
           <div>
             <span>Title: </span>
-            <span> {movie.book.title}</span>
-            <span>
+            <span className="movieviewDeets"> {movie.book.title}</span>
+            <span className="movieviewDeets">
               <strong> By:</strong> {movie.book.author}
             </span>
           </div>
         </div>
-        <button onClick={onBackClick}>Back</button>
-      </div>
+        <button onClick={onBackClick} className="back-button">
+          Back
+        </button>
+      </Col>
     </div>
   );
 };

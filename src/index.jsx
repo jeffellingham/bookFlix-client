@@ -1,12 +1,18 @@
 import { createRoot } from "react-dom/client";
 import { MainView } from "./components/MainView/main-view";
+import { Container } from "react-bootstrap";
 
+// import "bootstrap/dist/css/bootstrap.min.css";
 // Indicates I need to bundle './index.scss'
 import "./index.scss";
 
 // Main component (will eventually use all the others)
 const BookFlixApplication = () => {
-  return <MainView />; 
+  return (
+    <Container style={{ border: "1px solid red" }}>
+      <MainView />
+    </Container>
+  );
   //(
   //   <div className="book-flix">
   //     <div>Good morning, movie and book lovers!</div>

@@ -1,0 +1,13 @@
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.card:hover .text-truncate {
+  overflow: visible;
+  white-space: normal;
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
