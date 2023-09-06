@@ -1,0 +1,81 @@
+
+// .back-button {
+//   margin: 10px;
+//   padding: 5px 75px;
+//   border-radius: 5px;
+//   align-self: center;
+//   background-color: darkseagreen;
+//   font-weight: 900;
+// }
+
+.movieviewInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 17px;
+  line-height: 1.2em;
+  border: 1px solid darkolivegreen;
+  border-radius: 15px;
+  background-color: rgba(230, 230, 230, 0.5);
+  padding: 10px;
+}
+
+.movieviewImg {
+  max-width: 40vw;
+  max-height: 80vh;
+}
+
+.movieviewInfo div:nth-child(odd) {
+  margin: 12px 0;
+}
+
+.movieviewInfo span:first-of-type, .movieviewInfo strong {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.movieViewContainer {
+  display: flex;
+  align-items: center;
+}
+
+h2:first-of-type {
+  border-top: 1px solid darkolivegreen;
+  margin-top: 15px;
+}
+
+@media (max-width: 1000px) {
+  .movieViewContainer {
+    flex-direction: column;
+  }
+  .movieviewInfo, .movieviewInfo span:first-of-type, .movieviewInfo strong {
+    font-size: 1em;
+  }
+  div.movieviewInfo.col {
+    margin: 0;
+    max-width: 90vw;
+  }
+  .movieviewInfo.col div:nth-child(odd) {
+    margin: 0;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .movieviewInfo, .movieviewInfo span:first-of-type, .movieviewInfo .movieviewInfo-containers .movieviewDeets strong {
+    font-size: .85em;
+  }
+  .movieviewDeets {
+    font-size: .8em;
+  }
+  .movieviewRow h2 {
+    font-size: 1.5em;
+  }
+}
+
+// @media all and (max-width: 450px) {
+//   .logo .navbar-nav .navbar-brand {
+//     max-width: 33vw;
+//   }
+// }
+
+@import '~bootstrap/scss/bootstrap.scss';
