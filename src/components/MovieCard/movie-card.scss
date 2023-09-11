@@ -1,4 +1,9 @@
 
+$boxColor: rgba(131, 131, 131, 0.658);
+$bgColor: rgba(199, 247, 227, 0.6);
+$secondaryBGMixer: rgba(156, 169, 182, 0.8);
+
+
 .text-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -10,4 +15,27 @@
   white-space: normal;
 }
 
-@import '~bootstrap/scss/bootstrap.scss';
+.card-body {
+  background-color: $secondaryBGMixer;
+  align-items: flex-end;
+}
+
+.movieCard {
+  cursor: pointer;
+}
+
+.movieCard .card-body {
+  font-size: 1.3em;
+}
+
+// .movieCard .card-body .card-subtitle {
+//   font-size: 1.2em;
+// }
+
+// .movieCard .card-body .card-title {
+//   font-size: 1.6em;
+// }
+
+
+
+@import 'bootstrap/scss/bootstrap.scss';

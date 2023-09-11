@@ -1,50 +1,44 @@
+$boxColor: rgba(230, 230, 230, 0.5);
 
-// .carousel-wrapper {
-//   display: flex;
-//   flex-wrap: nowrap;
-//   overflow-x: auto;
-//   scroll-snap-type: x mandatory;
-//   -webkit-overflow-scrolling: touch;
-// }
 
-.carousel-inner {
-  display: flex;
-  flex-wrap: nowrap;
-  // justify-content: center;
-  // align-items: flex-start;
-  // overflow-x: auto;
-  // scroll-snap-type: x mandatory;
-  // -webkit-overflow-scrolling: touch;
+
+.movieviewInfo {
+  font-size: 1.35em;
+  line-height: 1.2em;
 }
 
-.carousel-item {
-  flex: 0 0 33%;
-  margin-right: 0;
-  display: block;
+.movieviewInfo div:nth-child(odd) {
+  margin: 12px 0;
+}
+.movieviewInfo-containers span:first-of-type, .movieviewInfo strong {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.searchBar {
+  display: inline-flex;
+  margin-bottom: 20px;
+  width: 200px;
+  height: auto;
 }
 
 
-@media all and (max-width: 576px) {
-
-  // .movieCard {
-  //   max-height: 100vh;
-  //   max-width: 65vw;
-    
-  // }
-  // .cardContainer {
-  //   justify-content: center;
-  //   align-items: center;
-  //   align-self: center;
-  //   margin: 0 auto;
-  //   width: 100%;
-  // }
+.movieCard:hover {
+  animation: .5s cardPop;
 }
 
-// @media all and (max-width: 350px) {
-//   .similarMovies .card {
-//     width: 100vw;
+@keyframes cardPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  
 
-//   }
-// }
 
 @import '~bootstrap/scss/bootstrap.scss';

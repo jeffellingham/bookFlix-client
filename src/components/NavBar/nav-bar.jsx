@@ -3,13 +3,12 @@ import "./nav-bar.scss";
 
 export const NavBar = ({ user, onLogout }) => {
   return (
-    <Navbar collapseOnSelect expand="md" className="bg-body-tertiary mb-5" sticky="top">
+    <Navbar collapseOnSelect expand="md" className="mb-5" sticky="top">
       <Container className="navbar-container justify-content-between">
         <Nav className="logo">
           {/* Create img for logo then wrap subtitle in navbar.brand */}
           <Navbar.Brand href="/">
-            <img src={require("../../img/paperBGLogo.png")} alt="logo" className="align-top" /> Written Worlds
-            Brought to Life!
+            <img src={require("../../img/bookFlixTitle.png")} alt="logo" className="align-top logo" />
           </Navbar.Brand>
         </Nav>
         <Nav>

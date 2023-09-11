@@ -9,153 +9,39 @@
 // TODO: 7. Add a sidebar to all pages that shows the user's top 10(?) movies (top 10 rated? I guess I could add another parameter to the favoriteMovies list (maybe have to make it an object? So each movie on favorite list has the movie id and/or title, and the user's rating (or a default of null)), or I can just make it so they can change the order of the movies in their favorite list and render the top 10 based on that order).
 // TODO: 8. Could I add a recommended movies list based off of a user's favorite movies? Like, people who favorited X movie also favorited Y and Z. This seems pretty high level for me
 // TODO: 9. A Navbar component using react-bootstrap
-// TODO: 10. Turn the similar movie sections into a carousel
-// TODO: 11. Add a similarMovies section for other movies by the book's author
 
 $color: black;
 $bgColor: rgba(199, 247, 227, 0.6);
+$boxColor: rgba(230, 230, 230, 0.5);
+$primaryBGMixer: rgba(143, 188, 143, 0.4);
+$secondaryBGMixer: rgba(119, 136, 153, 0.575);
 
 /*-----------GENERAL-------------*/
 
-body {
-  background-color: linear-gradient(to right, black, green);
-  font-family: 'Mouse Memoirs', sans-serif;
+#root {
+  background: linear-gradient(to right, $primaryBGMixer, $secondaryBGMixer 20%, $secondaryBGMixer 80%, $primaryBGMixer);
+  // background-color: $primaryBGMixer;
+  // font-family: 'Mouse Memoirs', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
 }
 
-// header .logo {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   margin: 10px;
-// }
-
-// header {
-//   display: flex;
-//   justify-content: space-between;
-//   border-bottom: 2px solid darkolivegreen;
-  // position: fixed;
-  // width: 100%;
-  // top: 0;
-  // padding: 10px;
-  // z-index: 1;
-// }
-
-// .navbar-brand, .subtitle {
-//   margin: 0;
-//   text-align: center;
-//   line-height: .97em;
-// }
-
-/*-----------MOVIE VIEW-------------*/
-
-// img {
-//   height: 175px;
-// }
-
-// .movieviewContent img {
-//   height: 500px;
-// }
-
-// .cardContainer img {
-//   height: 250px;
-// }
 
 .movieviewContent {
   display: flex;
   align-items: center;
-  // text-align: justify;
-  // width: 75%;
   margin: 50px;
 }
 
-.movieviewInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 50px;
-  font-size: 18px;
-  line-height: 1.2em;
-}
-
-.movieviewInfo div:nth-child(odd) {
-  margin: 12px 0;
-}
-
-.movieViewContainer h2 {
-  margin: 0;
-  // text-align: center;
-}
-
-.movieviewContent span:first-of-type, .movieviewInfo strong {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.movieCard__year {
-  font-style: italic;
-  font-weight: 100;
-  font-size: 0.8em;    
-}
-
-// .movieCard {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   width: 250px;
-//   border: 2px solid darkolivegreen;
-//   border-radius: 5px;
-//   margin: 10px;
-//   padding: 10px 5px;
-//   text-align: center;
-//   cursor: pointer;
-//   background-color: rgba(184, 181, 181, 0.5);
-//   font-weight: bold;
-// }
-
-.similarMovies .movieCard {
-  width: 150px;
+.movieViewRow h2 {
   margin: 0;
 }
-
-// .cardContainer {
-//   display: flex;
-//   flex-wrap: wrap;
-//   line-height: .95em;
-//   margin: 50px;
-//   justify-content: center;
-//   gap: 10px;
-// }
-
-// .similarMovies {
-//   display: flex;
-//   flex-wrap: wrap;
-//   line-height: .95em;
-//   justify-content: center;
-//   overflow: auto;
-  // margin: 50px;
-  // margin-bottom: 10px;
-// }
 
 .movieCard:hover {
   background-color: rgba(184, 181, 181, 0.8);
 }
 
-// .movieViewContainer button, button {
-//   margin: 10px;
-//   padding: 5px 20px;
-//   border-radius: 5px;
-//   align-self: center;
-//   background-color: darkseagreen;
-//   font-weight: 900;
-// }
-
 /* ------------MEDIA QUERIES---------------*/
-// @media (max-width: 1000px) {
-//   .movieviewContent {
-//     flex-direction: column;
-//   }
-
-// }
 
 
 @import '~bootstrap/scss/bootstrap.scss';

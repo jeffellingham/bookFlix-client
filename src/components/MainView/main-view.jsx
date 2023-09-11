@@ -4,7 +4,10 @@ import { MovieView } from "../MovieView/movie-view";
 import { LoginView } from "../LoginView/login-view";
 import { SignupView } from "../SignupView/signup-view";
 import { NavBar } from "../NavBar/nav-bar";
-import { Row, Col, Container, CardGroup, Carousel, CarouselItem, Stack } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./main-view.scss";
 
 export const MainView = () => {
@@ -51,134 +54,7 @@ export const MainView = () => {
   }, [token]);
   // Token is the 2nd argument of useEffect, known as a dependency array, which ensures fetch is called every time token changes (like after the user logs in)
 
-  // return (
-  //   <Row>
-  //     {!user ? (
-  //       <>
-  //         <LoginView
-  //           onLoggedIn={(user, token) => {
-  //             setUser(user);
-  //             setToken(token);
-  //           }}
-  //         />
-  //         or, Signup for an account to get started!
-  //         <SignupView />
-  //       </>
-  //     ) : selectedMovie ? (
-  //       let similarMoviesGenre = movies.filter((movie) => {
-  //         if (movie.genre.name === selectedMovie.genre.name && movie.title !== selectedMovie.title) {
-  //           return movie;
-  //         }
-  //         // return movie.genre.name === selectedMovie.genre.name
-  //       });
-  //       let similarMoviesDirector = movies.filter((movie) => {
-  //         if (movie.director.name === selectedMovie.director.name && movie.title !== selectedMovie.title) {
-  //           return movie;
-  //         }
-  //         // return movie.director.name === selectedMovie.director.name
-  //       });
-  //       let similarMoviesActor = movies.filter((movie) => {
-  //         for (let j = 0; j < movie.actors.length; j++) {
-  //           let actor = movie.actors[j];
-  //           for (let i = 0; i < selectedMovie.actors.length; i++) {
-  //             if (actor === selectedMovie.actors[i] && movie.title !== selectedMovie.title) {
-  //               return movie;
-  //             }
-  //           }
-  //         }
-  //       });
-  //       return (
-  //         <div className="movieViewContainer">
-  //           <header>
-  //             <div className="logo">
-  //               <h1>BookFlix</h1>
-  //               <p class="subtitle">Written worlds brought to life! 🍿</p>
-  //             </div>
-  //             <button
-  //               className="logoutButton"
-  //               onClick={() => {
-  //                 setUser(null);
-  //                 setToken(null);
-  //                 localStorage.clear();
-  //               }}>
-  //               Logout
-  //             </button>
-  //           </header>
-  //           <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-  //           <div className="similarMoviesContainer">
-  //             <h2>Other Movies of {selectedMovie.genre.name} Genre:</h2>
-  //             <div className="similarMovies">
-  //               {similarMoviesGenre.map((movie) => (
-  //                 <MovieCard
-  //                   key={movie.id}
-  //                   movie={movie}
-  //                   onMovieClick={(newSelectedMovie) => {
-  //                     setSelectedMovie(newSelectedMovie);
-  //                   }}
-  //                 />
-  //               ))}
-  //             </div>
-  //             <h2>Other Movies by Director, {selectedMovie.director.name}:</h2>
-  //             <div className="similarMovies">
-  //               {similarMoviesDirector.map((movie) => (
-  //                 <MovieCard
-  //                   key={movie.id}
-  //                   movie={movie}
-  //                   onMovieClick={(newSelectedMovie) => {
-  //                     setSelectedMovie(newSelectedMovie);
-  //                   }}
-  //                 />
-  //               ))}
-  //             </div>
-  //             <h2>Other Movies by the Actor(s):</h2>
-  //             <div className="similarMovies">
-  //               {similarMoviesActor.map((movie) => (
-  //                 <MovieCard
-  //                   key={movie.id}
-  //                   movie={movie}
-  //                   onMovieClick={(newSelectedMovie) => {
-  //                     setSelectedMovie(newSelectedMovie);
-  //                   }}
-  //                 />
-  //               ))}
-  //             </div>
-  //           </div>
-  //         </div>
-  //       );
-  //     ) : movies.length === 0 ? (
-  //       <div>The movie list is empty, dumdum!</div>;
-  //     ) : (
-  //       <header>
-  //         <div className="logo">
-  //           <h1>BookFlix</h1>
-  //           <p class="subtitle">Written worlds brought to life! 🍿</p>
-  //         </div>
-  //         <button
-  //           className="logoutButton"
-  //           onClick={() => {
-  //             setUser(null);
-  //             setToken(null);
-  //             localStorage.clear();
-  //           }}>
-  //           Logout
-  //         </button>
-  //       </header>
-  //       <div className="cardContainer">
-  //         {movies.map((movie) => (
-  //           <MovieCard
-  //             key={movie.id}
-  //             movie={movie}
-  //             onMovieClick={(newSelectedMovie) => {
-  //               setSelectedMovie(newSelectedMovie);
-  //             }}
-  //           />
-  //         ))}
-  //       </div>
-  //     )}
-  //   </Row>
-  // )
-
-  //when no user is logged in redirect to LoginView
+  //when no user is logged in, redirect to LoginView
   if (!user) {
     return (
       <Row className="justify-content-md-center">
@@ -197,12 +73,23 @@ export const MainView = () => {
   }
 
   //when a movie is selected, this opens MovieView
+  // first we set up the silimar movies sections for genre, director, actors, and author
   if (selectedMovie) {
     let similarMoviesGenre = movies.filter((movie) => {
       if (movie.genre.name === selectedMovie.genre.name && movie.title !== selectedMovie.title) {
         return movie;
       }
     });
+    //How to break up array to use react-bootstrap's carousel component, non-responsive though
+    // function chunkArray(array, size) {
+    //   let chunked_array = [];
+    //   for (let i = 0; i < array.length; i += size) {
+    //     chunked_array.push(array.splice(i, size));
+    //   }
+    //   return chunked_array;
+    // }
+    // const chunkedGenreMovies = chunkArray(similarMoviesGenre, 3);
+
     let similarMoviesDirector = movies.filter((movie) => {
       if (movie.director.name === selectedMovie.director.name && movie.title !== selectedMovie.title) {
         return movie;
@@ -223,9 +110,59 @@ export const MainView = () => {
         return movie;
       }
     });
+    // function slickNextArrow(props) {
+    //   const { style, onClick } = props;
+    //   return (
+    //     <img
+    //       src={require(src / img / right_arrow_icon.png)}
+    //       onClick={onClick}
+    //     />
+    //   );
+    // }
+    // function slickPrevArrow(props) {
+    //   const { style, onClick } = props;
+    //   return <div style={{ ...style, display: "block", backgroundColor: "green" }} onClick={onClick} />;
+    // }
+    const settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 6,
+      slidesToScroll: 4,
+      initialSlide: 0,
+      // swipeToSlide: true,
+      nextArrow: <slickNextArrow />,
+      prevArrow: <slickPrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1400,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 4,
+            // infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            // infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          },
+        },
+      ],
+    };
     return (
       <Row className="movieviewRow">
-        {/* <div className="movieViewContainer"> */}
         {/* <header> */}
         <NavBar
           user={user}
@@ -235,15 +172,15 @@ export const MainView = () => {
             localStorage.clear();
           }}
         />
+        {/* MovieView content */}
         <Col md={10} className="movieViewContent w-100">
           <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
         </Col>
-        {/* <div className="similarMoviesContainer"> */}
-        {/* <div className="similarMovies"> */}
-        {/* <Row> */}
+
+        {/* similarMovies sections */}
         <h2>Other {selectedMovie.genre.name} Movies:</h2>
-        {similarMoviesGenre.map((movie) => (
-          <Col lg={2} md={3} sm={4} xs={6} key={movie.id} className="mb-3 similarMovies col-xxs-12">
+        <Slider {...settings}>
+          {similarMoviesGenre.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}
@@ -251,32 +188,15 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
-          </Col>
-        ))}
-        {/* <Carousel className="similarMovies mb-3">
-          {similarMoviesGenre.map((movie, index) => (
-            <Carousel.Item key={movie.id} className="mb-3">
-              <Stack direction="horizontal" gap={3}>
-                <MovieCard
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Stack>
-            </Carousel.Item>
           ))}
-        </Carousel> */}
-        {/* </Row> */}
-        {/* </div> */}
+        </Slider>
         <h2>
           {similarMoviesDirector.length > 0
             ? " Other Movies by Director (" + selectedMovie.director.name + "): "
             : ""}
         </h2>
-        {/* {selectedMovie.director.name}:</h2> */}
-        {similarMoviesDirector.map((movie) => (
-          <Col lg={2} md={3} sm={4} key={movie.id} className="mb-3 similarMovies">
+        <Slider {...settings}>
+          {similarMoviesDirector.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}
@@ -284,11 +204,12 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
-          </Col>
-        ))}
+          ))}
+        </Slider>
+
         <h2>{similarMoviesActor.length > 0 ? "Other Movies with the Actor(s):" : ""}</h2>
-        {similarMoviesActor.map((movie) => (
-          <Col lg={2} md={3} sm={4} key={movie.id} className="mb-3 similarMovies">
+        <Slider {...settings}>
+          {similarMoviesActor.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}
@@ -296,15 +217,15 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
-          </Col>
-        ))}
+          ))}
+        </Slider>
         <h2>
           {similarMoviesAuthor.length > 0
             ? "Other Movies based on " + selectedMovie.book.author + "'s books:"
             : ""}
         </h2>
-        {similarMoviesAuthor.map((movie) => (
-          <Col lg={2} md={3} sm={4} key={movie.id} className="mb-3 similarMovies">
+        <Slider {...settings}>
+          {similarMoviesAuthor.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}
@@ -312,10 +233,8 @@ export const MainView = () => {
                 setSelectedMovie(newSelectedMovie);
               }}
             />
-          </Col>
-        ))}
-        {/* </div> */}
-        {/* </div> */}
+          ))}
+        </Slider>
       </Row>
     );
   }
@@ -335,22 +254,9 @@ export const MainView = () => {
           localStorage.clear();
         }}
       />
-      {/* <header>
-        <div className="logo">
-          <h1>BookFlix</h1>
-          <p class="subtitle">Written worlds brought to life! 🍿</p>
-        </div>
-        <button
-          className="logoutButton"
-          onClick={() => {
-            setUser(null);
-            setToken(null);
-            localStorage.clear();
-          }}>
-          Logout
-        </button>
-      </header> */}
       <>
+        {/* Put Search bar at the top to filter movies */}
+        {/* <input type="search" placeholder="Search..." className="searchBar" /> */}
         {movies.map((movie) => (
           <Col key={movie.id} sm={6} md={4} lg={3} xxl={2} className="mb-3 cardContainer">
             <MovieCard
