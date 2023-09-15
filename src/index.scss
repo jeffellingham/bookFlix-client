@@ -9,6 +9,8 @@
 // TODO: 7. Add a sidebar to all pages that shows the user's top 10(?) movies (top 10 rated? I guess I could add another parameter to the favoriteMovies list (maybe have to make it an object? So each movie on favorite list has the movie id and/or title, and the user's rating (or a default of null)), or I can just make it so they can change the order of the movies in their favorite list and render the top 10 based on that order).
 // TODO: 8. Could I add a recommended movies list based off of a user's favorite movies? Like, people who favorited X movie also favorited Y and Z. This seems pretty high level for me
 // TODO: 9. A Navbar component using react-bootstrap
+// TODO: 10. Add button to each movie's MovieView that links to the movie's preview on YouTube
+// TODO: 11. Add alerts for when a movie is favorited or unfavorited, could use something called sweetalert2 (plugin? library?)
 
 $color: black;
 $bgColor: rgba(199, 247, 227, 0.6);

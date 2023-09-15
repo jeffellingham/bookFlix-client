@@ -1,9 +1,19 @@
 
 $boxColor: rgba(230, 230, 230, 0.5);
-$secondaryBGMixer: rgba(156, 169, 182, 0.98);
+$secondaryBGMixer: rgba(156, 169, 182, 0.5);
 
+.movieviewInfo > .movieviewHeader.col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px solid seagreen;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
 
-.movieviewInfo {
+div.movieviewInfo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -13,6 +23,13 @@ $secondaryBGMixer: rgba(156, 169, 182, 0.98);
   border-radius: 15px;
   background-color: $secondaryBGMixer;
   padding: 10px;
+  height: fit-content;
+  align-self: center;
+}
+
+.movieviewInfo-containers span:first-of-type, .movieviewInfo strong {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .movieviewImg {
@@ -29,17 +46,32 @@ div.movieviewImgContainer {
   margin: 12px 0;
 }
 
-.movieViewContainer {
+div.movieViewContainer {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
-.movieviewRow h2 {
+.movieviewSimilar h2 {
   margin-top: 15px;
   &:first-of-type {
-    border-top: 1px solid darkolivegreen;
+    border-top: 3px solid seagreen;
+    border-radius: 5px 5px 0 0;
+    margin-top: 30px;
   }
 }
+
+div.movieviewSimilar {
+  width: 100%;
+  padding: 0;
+}
+
+div.movieviewInfo h1 {
+  // color: seagreen;
+  font-weight: bold;
+  text-shadow: .5px .5px .5px seagreen;
+}
+
 
 //-----------------CAROUSEL -----------------
 
@@ -62,9 +94,10 @@ div.slick-slider {
 }
 
 .slick-slide {
-  height: inherit !important;;
+  height: inherit !important;
   display: flex !important;
-  margin: 0 5px 25px 5px;
+  // margin: 0 3px;
+  margin-bottom: 25px;
 }
 
 ul.slick-dots {
@@ -118,11 +151,14 @@ slickprevarrow.slick-arrow {
 
 
 @media (max-width: 1000px) {
-  .movieViewContainer {
+  div.movieviewDetails {
     flex-direction: column;
   }
-  .movieviewInfo, .movieviewInfo span:first-of-type, .movieviewInfo strong {
+  div.movieviewInfo span:first-of-type, div.movieviewInfo strong {
     font-size: 1em;
+  }
+  div.movieviewDeets {
+    font-size: .9em;
   }
   div.movieviewInfo.col {
     margin: 0;
@@ -141,13 +177,14 @@ slickprevarrow.slick-arrow {
     font-size: .85em;
   }
   .movieviewDeets {
-    font-size: .8em;
+    font-size: .7em;
   }
-  .movieviewRow h2 {
+  .movieviewContainer h2 {
     font-size: 1.5em;
   }
-  .slick-slide .movieCard .card-body .card-title, .slick-slide .movieCard .card-body .card-subtitle {
-    font-size: 1.1em;
+  slicknextarrow.slick-arrow, slickprevarrow.slick-arrow {
+    height: 20px;
+    width: 20px;
   }
 }
 
@@ -156,12 +193,8 @@ slickprevarrow.slick-arrow {
     max-width: 33vw;
     min-width: 100px;
   }
-  ul.slick-dots {
-    // display: none !important;
-    max-width: fit-content;
-  }
   .movieviewImg {
-    max-width: 80vw;
+    max-width: 70vw;
   }
 }
 

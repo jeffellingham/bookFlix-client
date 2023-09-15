@@ -4,7 +4,8 @@ import { MovieView } from "../MovieView/movie-view";
 import { LoginView } from "../LoginView/login-view";
 import { SignupView } from "../SignupView/signup-view";
 import { NavBar } from "../NavBar/nav-bar";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,7 +18,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  // const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (!token) return;
@@ -27,8 +28,6 @@ export const MainView = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         const moviesFromApi = data.map((movie) => {
           return {
             id: movie._id,
@@ -53,6 +52,97 @@ export const MainView = () => {
       });
   }, [token]);
   // Token is the 2nd argument of useEffect, known as a dependency array, which ensures fetch is called every time token changes (like after the user logs in)
+
+  return (
+    <BrowserRouter>
+      <NavBar
+        user={user}
+        onLogout={() => {
+          setUser(null);
+          setToken(null);
+          localStorage.clear();
+        }}
+      />
+      <Container>
+        <Row className="justify-content-md-center">
+          <Routes>
+            <Route
+              path="/signup"
+              element={
+                <>
+                  {user ? (
+                    <Navigate to="/" />
+                  ) : (
+                    <Col md={5}>
+                      <SignupView />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <>
+                  {user ? (
+                    <Navigate to="/" />
+                  ) : (
+                    <Col md={5}>
+                      <LoginView
+                        onLoggedIn={(user, token) => {
+                          setUser(user);
+                          setToken(token);
+                        }}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/movies/:movieId"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The movie list is empty, dumdum!</Col>
+                  ) : (
+                    <Col>
+                      <MovieView movies={movies} />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to="/login" replace />
+                  ) : (
+                    <>
+                      {movies.map((movie) => (
+                        <Col key={movie.id} sm={6} md={4} lg={3} className="mb-3 cardContainer">
+                          <MovieCard
+                            movie={movie}
+                            // onMovieClick={(newSelectedMovie) => {
+                            //   setSelectedMovie(newSelectedMovie);
+                            // }}
+                          />
+                        </Col>
+                      ))}
+                    </>
+                  )}
+                </>
+              }
+            />
+          </Routes>
+        </Row>
+      </Container>
+    </BrowserRouter>
+  );
 
   //when no user is logged in, redirect to LoginView
   if (!user) {
@@ -112,12 +202,7 @@ export const MainView = () => {
     });
     // function slickNextArrow(props) {
     //   const { style, onClick } = props;
-    //   return (
-    //     <img
-    //       src={require(src / img / right_arrow_icon.png)}
-    //       onClick={onClick}
-    //     />
-    //   );
+    //   return <img src={require(src / img / right_arrow_icon.png)} onClick={onClick} />;
     // }
     // function slickPrevArrow(props) {
     //   const { style, onClick } = props;
@@ -163,7 +248,7 @@ export const MainView = () => {
     };
     return (
       <Row className="movieviewRow">
-        {/* <header> */}
+        {/* NavBar */}
         <NavBar
           user={user}
           onLogout={() => {
@@ -173,10 +258,16 @@ export const MainView = () => {
           }}
         />
         {/* MovieView content */}
-        <Col md={10} className="movieViewContent w-100">
-          <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
-        </Col>
-
+        <Container fluid className="movieViewContent w-100">
+          <MovieView
+            movie={selectedMovie}
+            genreSimilars={similarMoviesGenre}
+            directorSimilars={similarMoviesDirector}
+            actorSimilars={similarMoviesActor}
+            authorSimilars={similarMoviesAuthor}
+            onBackClick={() => setSelectedMovie(null)}
+          />
+        </Container>
         {/* similarMovies sections */}
         <h2>Other {selectedMovie.genre.name} Movies:</h2>
         <Slider {...settings}>
@@ -206,7 +297,6 @@ export const MainView = () => {
             />
           ))}
         </Slider>
-
         <h2>{similarMoviesActor.length > 0 ? "Other Movies with the Actor(s):" : ""}</h2>
         <Slider {...settings}>
           {similarMoviesActor.map((movie) => (

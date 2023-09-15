@@ -1,7 +1,7 @@
 
 $boxColor: rgba(131, 131, 131, 0.658);
 $bgColor: rgba(199, 247, 227, 0.6);
-$secondaryBGMixer: rgba(156, 169, 182, 0.8);
+$secondaryBGMixer: rgba(156, 169, 182, 0.7);
 
 
 .text-truncate {
@@ -15,27 +15,57 @@ $secondaryBGMixer: rgba(156, 169, 182, 0.8);
   white-space: normal;
 }
 
-.card-body {
+div.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+img.card-img-top {
+  height: inherit;
+}
+
+div.movieCard.card {
   background-color: $secondaryBGMixer;
-  align-items: flex-end;
 }
 
-.movieCard {
-  cursor: pointer;
+.movieCard .card-body .card-subtitle {
+  font-size: .9em;
 }
 
-.movieCard .card-body {
-  font-size: 1.3em;
+.movieCard .card-body .card-title {
+  font-size: 1.2em;
+  margin-bottom: 2px;
 }
 
-// .movieCard .card-body .card-subtitle {
-//   font-size: 1.2em;
-// }
+div.similarCard .card-img-top{
+  height: 250px;
+}
 
-// .movieCard .card-body .card-title {
-//   font-size: 1.6em;
-// }
+@media all and (max-width: 768px) {
+  .movieCard .card-body .card-subtitle {
+    font-size: .8em;
+  }
+  .movieCard .card-body .card-title {
+    font-size: 1.05em;
+  }
+  div.card-body .card-subtitle {
+    display: none;
+  }
+}
 
+// @media all and (max-width: 575px) {
+//   div.movieCard  {
+//     width: 75%;
+//     margin: 0 auto;
+//   }
+// };
+@media all and (max-width: 300px) {
+  div.movieCard  {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+};
 
 
 @import 'bootstrap/scss/bootstrap.scss';

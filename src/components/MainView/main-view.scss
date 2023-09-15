@@ -1,19 +1,5 @@
-$boxColor: rgba(230, 230, 230, 0.5);
 
-
-
-.movieviewInfo {
-  font-size: 1.35em;
-  line-height: 1.2em;
-}
-
-.movieviewInfo div:nth-child(odd) {
-  margin: 12px 0;
-}
-.movieviewInfo-containers span:first-of-type, .movieviewInfo strong {
-  font-weight: bold;
-  font-size: 1.2em;
-}
+$secondaryBGMixer: rgba(156, 169, 182, 0.7);
 
 .searchBar {
   display: inline-flex;
@@ -22,9 +8,9 @@ $boxColor: rgba(230, 230, 230, 0.5);
   height: auto;
 }
 
-
 .movieCard:hover {
   animation: .5s cardPop;
+  cursor: pointer;
 }
 
 @keyframes cardPop {

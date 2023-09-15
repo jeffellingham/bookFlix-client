@@ -5,9 +5,22 @@ $secondaryBGMixer: rgba(156, 169, 182, 0.95);
 .navbar {
   background-color: honeydew;
   border-bottom: 2px solid $secondaryBGMixer;
-  color: #556b2f;
-  font-size: 1.25em;
-  letter-spacing: .6px;
+  // color: #556b2f;
+  font-size: 1em;
+  letter-spacing: .9px;
+}
+
+.navbar-nav {
+  align-items: flex-end;
+}
+
+.burgerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+nav.navbar > .navbar-container {
+  align-items: flex-start;
 }
 
 button {

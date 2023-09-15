@@ -1,25 +1,24 @@
 import PropTypes from "prop-types";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./movie-card.scss";
 
 // Exporting moviecard function component
-export const MovieCard = ({ movie, onMovieClick }) => {
+export const MovieCard = ({ movie }) => {
   return (
-    <Card
-      onClick={() => {
-        onMovieClick(movie);
-      }}
-      className="movieCard h-100">
-      <Card.Img variant="top" src={movie.imagePath} />
-      <Card.Body>
-        <Card.Title className="d-inline-block text-truncate">{movie.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">
-          {movie.releaseYear} • {movie.genre.name}
-        </Card.Subtitle>
-        {/* <Card.Text className="movieCard__description d-inline-block text-truncate">
+    <Card className="movieCard h-100">
+      <Link className="text-decoration-none text-dark" to={`/movies/${encodeURIComponent(movie.id)}`}>
+        <Card.Img variant="top" src={movie.imagePath} />
+        <Card.Body>
+          <Card.Title className="d-inline-block text-truncate">{movie.title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            {movie.releaseYear} • {movie.genre.name}
+          </Card.Subtitle>
+          {/* <Card.Text className="movieCard__description d-inline-block text-truncate">
           {movie.description}
         </Card.Text> */}
-      </Card.Body>
+        </Card.Body>
+      </Link>
     </Card>
   );
 };
@@ -31,5 +30,4 @@ MovieCard.propTypes = {
     imagePath: PropTypes.string.isRequired,
     releaseYear: PropTypes.number.isRequired,
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
