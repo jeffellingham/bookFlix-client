@@ -21,13 +21,13 @@ div.movieviewInfo {
   line-height: 1.2em;
   border: 1px solid darkolivegreen;
   border-radius: 15px;
-  background-color: $secondaryBGMixer;
+  // background-color: $secondaryBGMixer;
   padding: 10px;
   height: fit-content;
   align-self: center;
 }
 
-.movieviewInfo-containers span:first-of-type, .movieviewInfo strong {
+.movieviewInfo-containers span:first-of-type {
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -42,9 +42,13 @@ div.movieviewImgContainer {
   justify-content: center;
 }
 
-.movieviewInfo div:nth-child(odd) {
-  margin: 12px 0;
+div.movieviewInfo-containers {
+  margin: 5px 0;
 }
+
+// .movieviewInfo div:nth-child(odd) {
+//   margin: 12px 0;
+// }
 
 div.movieViewContainer {
   display: flex;
@@ -70,6 +74,38 @@ div.movieviewInfo h1 {
   // color: seagreen;
   font-weight: bold;
   text-shadow: .5px .5px .5px seagreen;
+}
+
+.movieviewHeader.col p {
+  margin-bottom: 0;
+}
+
+.back-button {
+  // margin: 10px;
+  width: 150px;
+  padding: 5px 20px;
+  border-radius: 15px;
+  background-color: seagreen;
+  font-weight: 900;
+}
+
+.trailer-button {
+  margin: 10px ;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-weight: 900;
+}
+
+.btnContainer {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.youtube-logo {
+  color: red;
+  margin-bottom: 3px;
 }
 
 
@@ -126,8 +162,8 @@ ul.slick-dots {
   font-weight: bold !important;
 }
 
-slicknextarrow.slick-arrow {
-  background: $secondaryBGMixer;
+button.slick-arrow.slick-next {
+  background: black;
   width: 42px;
   height: 42px;
   border-radius: 36px;
@@ -135,10 +171,13 @@ slicknextarrow.slick-arrow {
   right: 25px;
   display: flex !important;
   justify-content: center;
+  &:hover{
+    background: $secondaryBGMixer;
+  }
 }
 
-slickprevarrow.slick-arrow {
-  background: $secondaryBGMixer;
+button.slick-arrow.slick-prev  {
+  background: black;
   width: 42px;
   height: 42px;
   border-radius: 50px;
@@ -147,14 +186,18 @@ slickprevarrow.slick-arrow {
   z-index: 10;
   display: flex !important;
   justify-content: center;
+  &:hover{
+    background: $secondaryBGMixer;
+  }
 }
+
 
 
 @media (max-width: 1000px) {
   div.movieviewDetails {
     flex-direction: column;
   }
-  div.movieviewInfo span:first-of-type, div.movieviewInfo strong {
+  div.movieviewInfo span:first-of-type {
     font-size: 1em;
   }
   div.movieviewDeets {
@@ -173,7 +216,7 @@ slickprevarrow.slick-arrow {
 }
 
 @media all and (max-width: 768px) {
-  .movieviewInfo, .movieviewInfo span:first-of-type, .movieviewInfo .movieviewInfo-containers .movieviewDeets strong {
+  .movieviewInfo, .movieviewInfo span:first-of-type {
     font-size: .85em;
   }
   .movieviewDeets {
@@ -182,10 +225,14 @@ slickprevarrow.slick-arrow {
   .movieviewContainer h2 {
     font-size: 1.5em;
   }
-  slicknextarrow.slick-arrow, slickprevarrow.slick-arrow {
+  button.slick-arrow.slick-next, button.slick-arrow.slick-prev {
     height: 20px;
     width: 20px;
   }
+  .slick-next:before, .slick-prev:before {
+    font-size: 36px !important;
+  }
+
 }
 
 @media all and (max-width: 550px) {

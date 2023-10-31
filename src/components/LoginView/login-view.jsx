@@ -6,6 +6,7 @@ import "./login-view.scss";
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (event) => {
     // Prevent the default form submission behavior (reloading page)
     event.preventDefault();
@@ -43,6 +44,7 @@ export const LoginView = ({ onLoggedIn }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h1 className="mt-5 text-center">Welcome back!</h1>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control
@@ -62,7 +64,7 @@ export const LoginView = ({ onLoggedIn }) => {
           required
         />
       </Form.Group>
-      <Button variant="success" type="submit">
+      <Button variant="success" type="submit" className="mt-3">
         Submit
       </Button>
     </Form>

@@ -2,12 +2,14 @@
 $primaryBGMixer: rgba(143, 188, 143, 0.95);
 $secondaryBGMixer: rgba(156, 169, 182, 0.95);
 
-.navbar {
+nav.navbar {
   background-color: honeydew;
   border-bottom: 2px solid $secondaryBGMixer;
   // color: #556b2f;
   font-size: 1em;
   letter-spacing: .9px;
+  padding: 0;
+  font-weight: 800;
 }
 
 .navbar-nav {
@@ -23,19 +25,25 @@ nav.navbar > .navbar-container {
   align-items: flex-start;
 }
 
-button {
-  margin: 10px;
-  padding: 5px 20px;
-  border-radius: 15px;
-  align-self: center;
-  background-color: seagreen;
-  font-weight: 900;
+a.nav-link:hover {
+  color: seagreen;
+  // text-decoration: underline;
+}
+a.nav-link::before {
+  content: "• ";
+}
+a.nav-link:hover::after {
+  content: "}";
+}
+a.nav-link:hover::before {
+  content: "{";
 }
 
-.navbar-brand{
+a.logo.navbar-brand{
   display: flex;
   flex-direction: column;
   line-height: .97em;
+  padding: 0;
 }
 
 

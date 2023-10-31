@@ -12,607 +12,1274 @@
 // Select the database to use.
 use("bookFlixDB");
 
-db.movies.insertOne({
-  title: "Carrie",
-  releaseYear: 1976,
-  genre: {
-    name: "Horror",
-    description: "Horror films are often based on real events or fictional characters.",
-  },
-  description:
-    "Carrie White, a shy, friendless teenage girl who is sheltered by her domineering, religious mother, unleashes her telekinetic powers after being humiliated by her classmates at her senior prom.",
-  actors: ["Sissy Spacek", "Piper Laurie", "Amy Irving", "John Travolta"],
-  featured: false,
-  book: { title: "Carrie", author: "Stephen King" },
-  director: {
-    name: "Brian De Palma",
-    birth: "1940",
-    bio: "Brian Russell De Palma is an American film director and screenwriter. With a career spanning over 50 years, he is best known for his work in the suspense, crime and psychological thriller genres.",
-  },
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/09/carriebg.jpg",
-});
-db.movies.insertOne({
-  title: "Stand by Me",
-  releaseYear: 1986,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "After the death of one of his friends, a writer recounts a childhood journey with his friends to find the body of a missing boy.",
-  actors: ["Wil Wheaton", "Corey Feldman", "River Phoenix", "Jerry O’Connell", "Kiefer Sutherland"],
-  featured: false,
-  book: { title: "The Body", author: "Stephen King" },
-  director: {
-    name: "Rob Reiner",
-    birth: "1946",
-    bio: 'Robert Reiner is an American actor and filmmaker. As an actor, Reiner first came to national prominence with the role of Michael "Meathead" Stivic on the CBS sitcom All in the Family, a performance that earned him two Primetime Emmy Awards.',
-  },
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2018/01/dani_standbyme.jpg",
-});
-db.movies.insertOne({
-  title: "Misery",
-  releaseYear: 1990,
-  genre: {
-    name: "Horror",
-    description: "Horror films are often based on real events or fictional characters.",
-  },
-  description:
-    "After a famous author is rescued from a car crash by a fan of his novels, he comes to realize that the care he is receiving is only the beginning of a nightmare of captivity and abuse.",
-  actors: ["James Caan", "Kathy Bates", "Richard Farnsworth"],
-  director: {
-    name: "Rob Reiner",
-    birth: "1946",
-    bio: 'Robert Reiner is an American actor and filmmaker. As an actor, Reiner first came to national prominence with the role of Michael "Meathead" Stivic on the CBS sitcom All in the Family, a performance that earned him two Primetime Emmy Awards.',
-  },
-  featured: false,
-  book: { title: "Misery", author: "Stephen King" },
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2016/04/szabo_misery.jpg",
-});
-db.movies.insertOne({
-  title: "IT",
-  releaseYear: 2017,
-  genre: {
-    name: "Horror",
-    description: "Horror films are often based on real events or fictional characters.",
-  },
-  description:
-    "In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.",
-  actors: [
-    "Bill Skarsgård",
-    "Jaeden Martell",
-    "Finn Wolfhard",
-    "Sophia Lillis",
-    "Jeremy Ray Taylor",
-    "Chosen Jacobs",
-    "Jack Dylan Grazer",
-  ],
-  director: {
-    name: "Andy Muschietti",
-    birth: "1973",
-    bio: "Andrés Walter Muschietti is an Argentine filmmaker who achieved wide recognition with the 2013 film Mama which he made with Neil Cross and his older sister, producer and screenwriter Barbara Muschietti, based on their three-minute film of the same name.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/files/9b69c0d073be29d0ddca371a222fab61_c475c7a8-ada0-42fb-a3d7-56b6088e84d0_480x.progressive.jpg?v=1688134673",
-  book: { title: "IT", author: "Stephen King" },
-});
-db.movies.insertOne({
-  title: "IT: Chapter Two",
-  releaseYear: 2019,
-  genre: {
-    name: "Horror",
-    description: "Horror films are often based on real events or fictional characters.",
-  },
-  description:
-    "Twenty-seven years after their first encounter with the terrifying Pennywise, the Losers Club have grown up and moved away, until a devastating phone call brings them back.",
-  actors: [
-    "Bill Skarsgård",
-    "Jessica Chastain",
-    "James McAvoy",
-    "Bill Hader",
-    "Isaiah Mustafa",
-    "Jay Ryan",
-    "James Ransone",
-  ],
-  director: {
-    name: "Andy Muschietti",
-    birth: "1973",
-    bio: "Andrés Walter Muschietti is an Argentine filmmaker who achieved wide recognition with the 2013 film Mama which he made with Neil Cross and his older sister, producer and screenwriter Barbara Muschietti, based on their three-minute film of the same name.",
-  },
-  featured: false,
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2019/09/morroni_it.jpg",
-  book: { title: "IT", author: "Stephen King" },
-});
-db.movies.insertOne({
-  title: "The Mist",
-  releaseYear: 2007,
-  genre: {
-    name: "Horror",
-    description: "Horror films are often based on real events or fictional characters.",
-  },
-  description:
-    "A freak storm unleashes a species of bloodthirsty creatures on a small town, where a small band of citizens hole up in a supermarket and fight for their lives.",
-  actors: ["Thomas Jane", "Marcia Gay Harden", "Laurie Holden"],
-  director: {
-    name: "Frank Darabont",
-    bio: "Frank Darabont is an American film director, screenwriter, and producer. He is known for his work in science fiction, action, and adventure films.",
-    birth: "1959",
-  },
-  featured: false,
-  book: { title: "The Mist", author: "Stephen King" },
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2017/04/glitchway_mist.jpg",
-});
-db.movies.insertOne({
-  title: "Forrest Gump",
-  releaseYear: 1994,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
-  actors: ["Tom Hanks", "Robin Wright", "Gary Sinise", "Sally Field"],
-  director: {
-    name: "Robert Zemeckis",
-    birth: "1937",
-    bio: "Robert Lee Zemeckis is an American filmmaker. He first came to public attention as the director of the action-adventure romantic comedy Romancing the Stone, the science-fiction comedy Back to the Future film trilogy, and the live-action/animated comedy Who Framed Roger Rabbit.",
-  },
-  featured: false,
-  imagePath:
-    "https://alternativemovieposters.com/wp-content/uploads/2021/09/FORREST-GUMP-RICCARDO-ROSANNA.jpg",
-  book: { title: "Forrest Gump", author: "Winston Groom" },
-});
-db.movies.insertOne({
-  title: "Pride & Prejudice",
-  releaseYear: 2005,
-  genre: {
-    name: "Romance",
-    description: "romance films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?",
-  actors: [
-    "Keira Knightley",
-    "Matthew Macfadyen",
-    "Brenda Blethyn",
-    "Donald Sutherland",
-    "Rosamund Pike",
-    "Jena Malone",
-    "Carey Mulligan",
-  ],
-  director: {
-    name: "Joe Wright",
-    birth: "1972",
-    bio: "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/5577e4e7f95f3214748b46ab98e376c9_e381fd8f-3078-4f30-9711-321eb96e30c4_480x.progressive.jpg?v=1573617183",
-  book: { title: "Pride & Prejudice", author: "Jane Austen" },
-});
-db.movies.insertOne({
-  title: "The Notebook",
-  releaseYear: 2004,
-  genre: {
-    name: "Romance",
-    description: "romance films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
-  actors: ["Ryan Gosling", "Rachel McAdams", "Gena Rowlands", "James Garner"],
-  director: {
-    name: "Nick Cassavetes",
-    birth: "1959",
-    bio: "Nicholas David Rowland Cassavetes is an American actor, director, and writer. He has directed such films as She's So Lovely, John Q., The Notebook, Alpha Dog, and My Sister's Keeper.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/files/scan_d42fcc7e-405b-4a98-9963-dea49ae1d35b_480x.progressive.jpg?v=1690917858",
-  book: { title: "The Notebook", author: "Nicholas Sparks" },
-});
-db.movies.insertOne({
-  title: "The Fault in Our Stars",
-  releaseYear: 2014,
-  genre: {
-    name: "Romance",
-    description: "romance films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "Two teenage cancer patients begin a life-affirming journey to visit a reclusive author in Amsterdam.",
-  actors: ["Shailene Woodley", "Ansel Elgort", "Laura Dern", "Nat Wolff", "Willem Dafoe"],
-  director: {
-    name: "Josh Boone",
-    birth: "1979",
-    bio: "Josh Boone is an American filmmaker. He is best known for directing the romantic drama The Fault in Our Stars, based on the novel of the same name. Boone also wrote and directed the romantic comedy Stuck in Love and the superhero horror film The New Mutants.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/43540c0fe84fbdcf7039b4d24bfce7af_1981b45e-2321-4b9c-8ff6-ed1e5d2a8ea3_480x.progressive.jpg?v=1573594989",
-  book: { title: "The Fault in Our Stars", author: "John Green" },
-});
-db.movies.insertOne({
-  title: "Little Women",
-  releaseYear: 2019,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "Jo March reflects back and forth on her life, telling the beloved story of the March sisters - four young women, each determined to live life on her own terms.",
-  actors: [
-    "Saoirse Ronan",
-    "Emma Watson",
-    "Florence Pugh",
-    "Eliza Scanlen",
-    "Laura Dern",
-    "Timothée Chalamet",
-    "Bob Odenkirk",
-  ],
-  director: {
-    name: "Greta Gerwig",
-    birth: "1983",
-    bio: "Greta Celeste Gerwig is an American actress, screenwriter, director, and producer. She first garnered attention after working on and appearing in several mumblecore films. She has since transitioned her career from acting and co-writing independent films to directing films from major studios.",
-  },
-  featured: false,
-  imagePath: "https://www.movieposters.com/cdn/shop/products/little_women_480x.progressive.jpg?v=1579037732",
-  book: { title: "Little Women", author: "Louisa May Alcott" },
-});
-db.movies.insertOne({
-  title: "One Flew Over the Cuckoo's Nest",
-  releaseYear: 1975,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "In the Fall of 1963, a Korean War veteran and criminal pleads insanity and is admitted to a mental institution, where he rallies up the scared patients against the tyrannical nurse.",
-  actors: ["Jack Nicholson", "Peter Brocco", "Louise Fletcher", "Michael Berryman", "Danny DeVito"],
-  director: {
-    name: "Milos Forman",
-    birth: "1932",
-    death: "2018",
-    bio: "Milos Forman is an American filmmaker. He is best known for directing the films The Pianist, The Deer Hunter, and The Last Station.",
-  },
-  featured: false,
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2016/04/szabo_cuckoo.jpg",
-  book: { title: "One Flew Over the Cuckoo's Nest", author: "Ken Kesey" },
-});
-db.movies.insertOne({
-  title: "The Devil Wears Prada",
-  releaseYear: 2006,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A smart but socially awkward graduate lands a job as an assistant to Miranda Priestly, the demanding editor-in-chief of a high fashion magazine.",
-  actors: ["Anne Hathaway", "Meryl Streep", "Adrian Grenier", "Emily Blunt", "Stanley Tucci", "Simon Baker"],
-  director: {
-    name: "David Frankel",
-    birth: "1959",
-    bio: "David Frankel is an American filmmaker. He is best known for directing the films The Devil Wears Prada, The Curious Case of Benjamin Button, and The Kids Are All Right.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/devilwearsprada11_480x.progressive.jpg?v=1620228599",
-  book: { title: "The Devil Wears Prada", author: "Lauren Weisberger" },
-});
-db.movies.insertOne({
-  title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
-  releaseYear: 2005,
-  genre: {
-    name: "Fantasy",
-    description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "Four kids travel through a wardrobe to the land of Narnia and learn of their destiny to free it with the guidance of a mystical lion.",
-  actors: [
-    "Tilda Swinton",
-    "Georgie Henley",
-    "William Moseley",
-    "Skandar Keynes",
-    "Anna Popplewell",
-    "James McAvoy",
-  ],
-  director: {
-    name: "Andrew Adamson",
-    birth: "1966",
-    bio: "Andrew Ralph Adamson MNZM is a New Zealand film director, producer and screenwriter. He is best known for directing the DreamWorks animated films Shrek and its sequel Shrek 2.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/0bbe1f686feb56b250b3b88fc59e2abc_e54290ed-78cd-4fda-b211-0b3a2c45d507_480x.progressive.jpg?v=1573587331",
-  book: { title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", author: "C.S. Lewis" },
-});
-db.movies.insertOne({
-  title: "The Chronicles of Narnia: The Voyage of the Dawn Treader",
-  releaseYear: 2010,
-  genre: {
-    name: "Fantasy",
-    description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "Lucy and Edmund Pevensie return to Narnia with their cousin Eustace where they meet up with Prince Caspian for a trip across the sea aboard the royal ship The Dawn Treader. Along the way they encounter dragons, dwarves, merfolk, and a band of lost warriors before reaching the edge of the world.",
-  actors: [
-    "Ben Barnes",
-    "Skandar Keynes",
-    "Georgie Henley",
-    "Will Poulter",
-    "Anna Popplewell",
-    "Tilda Winton",
-    "William Moseley",
-    "Gary Sweet",
-  ],
-  director: {
-    name: "Michael Apted",
-    birth: "1941",
-    death: "2021",
-    bio: "Michael David Apted, CMG was a British television and film director and producer. Apted began working in television and directed the Up documentary series. He later directed Coal Miner's Daughter, which was nominated for seven Academy Awards including Best Picture.",
-  },
-  featured: false,
-  imagePath:
-    "https://fr.originalfilmart.com/cdn/shop/products/Chronicles_of_Narnia_The_Voyage_of_the_Dawn_Treader_2010_original_film_art_5000x.jpg?v=1562543431",
-  book: { title: "The Chronicles of Narnia: The Voyage of the Dawn Treader", author: "C.S. Lewis" },
-});
-db.movies.insertOne({
-  title: "The Chronicles of Narnia: Prince Caspian",
-  releaseYear: 2008,
-  genre: {
-    name: "Fantasy",
-    description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "The Pevensie siblings return to Narnia, where they are enlisted to once again help ward off an evil king and restore the rightful heir to the land's throne, Prince Caspian.",
-  director: {
-    name: "Andrew Adamson",
-    birth: "1966",
-    bio: "Andrew Ralph Adamson MNZM is a New Zealand film director, producer and screenwriter. He is best known for directing the DreamWorks animated films Shrek and its sequel Shrek 2.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/9ec541520233e3f56076251e2d2cd1f4_480x.progressive.jpg?v=1573588860",
-  book: { title: "The Chronicles of Narnia: Prince Caspian", author: "C.S. Lewis" },
-});
-db.movies.insertOne({
-  title: "Schindler's List",
-  releaseYear: 1993,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-  actors: ["Liam Neeson", "Ralph Fiennes", "Ben Kingsley", "Caroline Goodall", "Jonathan Sagall"],
-  director: {
-    name: "Steven Spielberg",
-    birth: "1946",
-    bio: "One of the most influential personalities in the history of cinema, Steven Spielberg is Hollywood's best known director and one of the wealthiest filmmakers in the world. He has an extraordinary number of commercially successful and critically acclaimed credits to his name, either as a director, producer or writer since launching the summer blockbuster with Jaws (1975), and he has done more to define popular film-making since the mid-1970s than anyone else.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/891b33652234029b0638095439f27d81_92f913d0-f315-4c5d-a8d5-93aae832f7bf_480x.progressive.jpg?v=1573651232",
-  book: { title: "Schindler's List", author: "Thomas Keneally" },
-});
-db.movies.insertOne({
-  title: "Raging Bull",
-  releaseYear: 1980,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "The life of boxer Jake LaMotta, whose violence and temper that led him to the top in the ring destroyed his life outside of it.",
-  actors: ["Robert De Niro", "Joe Pesci", "Cathy Moriarty", "Frank Vincent"],
-  director: {
-    name: "Martin Scorsese",
-    bio: "Martin Charles Scorsese is an American and Italian film director, producer, screenwriter and actor. Scorsese emerged as one of the major figures of the New Hollywood era.",
-    birth: "1942",
-  },
-  featured: false,
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/03/ragingbullbg1.jpg",
-  book: { title: "Raging Bull: My Story", author: "Jake LaMotta" },
-});
-db.movies.insertOne({
-  title: "Breakfast at Tiffany's",
-  releaseYear: 1961,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way.",
-  actors: ["Audrey Hepburn", "George Peppard", "Patricia Neal", "Buddy Ebsen"],
-  director: {
-    name: "Blake Edwards",
-    birth: "1922",
-    death: "2010",
-    bio: "Blake Edwards was an American film director, producer, screenwriter, and actor. Edwards began his career in the 1940s as an actor, but he soon began writing screenplays and radio scripts before turning to producing and directing in television and films.",
-  },
-  featured: false,
-  imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/05/tiffanysbg.jpg",
-  book: { title: "Breakfast at Tiffany's", author: "Truman Capote" },
-});
-db.movies.insertOne({
-  title: "Matilda",
-  releaseYear: 1996,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A girl gifted with a keen intellect and psychic powers uses both to deal with her crude, distant family and free her kind teacher from their sadistic headmistress.",
-  actors: ["Danny DeVito", "Rhea Perlman", "Mara Wilson", "Embeth Davidtz", "Paul Reubens"],
-  director: {
-    name: "Danny DeVito",
-    birth: "1944",
-    bio: "Daniel Michael DeVito Jr. is an American actor, comedian, and filmmaker. He gained prominence for his portrayal of the taxi dispatcher Louie De Palma in the television series Taxi, which won him a Golden Globe Award and an Emmy Award. He plays Frank Reynolds on the FX and FXX sitcom It's Always Sunny in Philadelphia.",
-  },
-  featured: false,
-  imagePath: "https://www.movieposters.com/cdn/shop/products/Matilda.11x17_480x.progressive.jpg?v=1676043000",
-  book: { title: "Matilda", author: "Roald Dahl" },
-});
-db.movies.insertOne({
-  title: "Charlie and the Chocolate Factory",
-  releaseYear: 2005,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A young boy wins a tour through the most magnificent chocolate factory in the world, led by the world's most unusual candy maker.",
-  actors: ["Johnny Depp", "Freddie Highmore", "David Kelly", "Helena Bonham Carter"],
-  director: {
-    name: "Tim Burton",
-    birth: "1958",
-    bio: "Timothy Walter Burton is an American filmmaker, animator, producer, screenwriter, and artist. Known for pioneering goth culture in the American film industry, Burton is revered for his fantasy, horror, and romantic films. ",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/46a3e3d50f8e50997af061201fea7385_a1b9810c-e37f-40e7-a85c-3a0b86cfab7b_480x.progressive.jpg?v=1573653669",
-  book: { title: "Charlie and the Chocolate Factory", author: "Roald Dahl" },
-});
-db.movies.insertOne({
-  title: "The Remains of the Day",
-  releaseYear: 1993,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "A butler who sacrificed body and soul to service in the years leading up to World War II realizes too late how misguided his loyalty was to his lordly employer.",
-  actors: ["Anthony Hopkins", "Emma Thompson", "John Haycraft", "Christopher Reeve"],
-  director: {
-    name: "James Ivory",
-    birth: "1928",
-    bio: "James Francis Ivory is an American film director, producer, and screenwriter. For many years, he worked extensively with Indian-born film producer Ismail Merchant, his domestic as well as professional partner, and with screenwriter Ruth Prawer Jhabvala.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/69150bb532a8e9b04922f54579f6faa0_480x.progressive.jpg?v=1573590292",
-  book: { title: "The Remains of the Day", author: "Kazuo Ishiguro" },
-});
-db.movies.insertOne({
-  title: "Doctor Zhivago",
-  releaseYear: 1965,
-  genre: {
-    name: "Drama",
-    description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
-  },
-  description:
-    "The life of a Russian physician and poet who, although married to another, falls in love with a political activist's wife and experiences hardship during World War I and then the October Revolution.",
-  actors: ["Omar Sharif", "Julie Christie", "Geraldine Chaplin"],
-  director: {
-    name: "David Lean",
-    birth: "1908",
-    death: "1991",
-    bio: "David Lean was an English film director and producer, who was ironically raised in a strict Quaker family and wasn't allowed to go to the movies. He is best known for directing the films Lawrence of Arabia (1962), Doctor Zhivago (1965), and A Passage to India (1984).",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/356bbf5f2ec642a57a6bf117921869b3_baccfcd9-5587-43b0-aec4-cd52444a25aa_480x.progressive.jpg?v=1573588623",
-  book: { title: "Doctor Zhivago", author: "Boris Pasternak" },
-});
-db.movies.insertOne({
-  title: "The Hunger Games: Catching Fire",
-  releaseYear: 2013,
-  genre: {
-    name: "Adventure",
-    description:
-      "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
-  },
-  description:
-    "Katniss Everdeen and Peeta Mellark become targets of the Capitol after their victory in the 74th Hunger Games sparks a rebellion in the Districts of Panem.",
-  actors: [
-    "Jennifer Lawrence",
-    "Josh Hutcherson",
-    "Liam Hemsworth",
-    "Elizabeth Banks",
-    "Donald Sutherland",
-    "Woody Harrelson",
-    "Stanley Tucci",
-    "Phillip Seymour Hoffman",
-  ],
-  director: {
-    name: "Francis Lawrence",
-    birth: "1971",
-    bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/ed86e3334475bccbee0b80c9375778af_77f18b02-500d-4e7e-a1ea-e155d3d6203c_480x.progressive.jpg?v=1573587557",
-  book: { title: "The Hunger Games: Catching Fire", author: "Suzanne Collins" },
-});
-db.movies.insertOne({
-  title: "The Hunger Games: Mockingjay - Part 1",
-  releaseYear: 2014,
-  genre: {
-    name: "Adventure",
-    description:
-      "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
-  },
-  description:
-    "Katniss Everdeen is in District 13 after she shatters the games forever. Under the leadership of President Coin and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta and a nation moved by her courage.",
-  actors: [
-    "Jennifer Lawrence",
-    "Josh Hutcherson",
-    "Liam Hemsworth",
-    "Elizabeth Banks",
-    "Donald Sutherland",
-    "Woody Harrelson",
-    "Phillip Seymour Hoffman",
-    "Jena Malone",
-    "Jeffrey Wright",
-    "Willow Shields",
-    "Julianna Moore",
-    "Stanley Tucci",
-    "Mahershala Ali",
-  ],
-  director: {
-    name: "Francis Lawrence",
-    birth: "1971",
-    bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/acd369d0dfac5a1df9810fd86ddc6096_1dd0870e-13a4-4c86-936a-0d093dde5a75_480x.progressive.jpg?v=1573651201",
-  book: { title: "The Hunger Games: Mockingjay", author: "Suzanne Collins" },
-});
-db.movies.insertOne({
-  title: "The Hunger Games: Mockingjay - Part 2",
-  releaseYear: 2015,
-  genre: {
-    name: "Adventure",
-    description:
-      "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
-  },
-  description:
-    "Katniss and a team of rebels from District 13 prepare for the final battle that will decide the fate of Panem.",
-  actors: [
-    "Jennifer Lawrence",
-    "Josh Hutcherson",
-    "Liam Hemsworth",
-    "Elizabeth Banks",
-    "Donald Sutherland",
-    "Woody Harrelson",
-    "Phillip Seymour Hoffman",
-    "Jena Malone",
-    "Willow Shields",
-    "Julianna Moore",
-    "Stanley Tucci",
-    "Mahershala Ali",
-    "Jeffrey Wright",
-  ],
-  director: {
-    name: "Francis Lawrence",
-    birth: "1971",
-    bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
-  },
-  featured: false,
-  imagePath:
-    "https://www.movieposters.com/cdn/shop/products/459f5ad92da161741212395c3cd2e8da_c5aa06e6-549f-4de8-9ba0-d97ae9856f27_480x.progressive.jpg?v=1660245264",
-  book: { title: "The Hunger Games: Mockingjay", author: "Suzanne Collins" },
-});
+db.users.updateMany(
+  {},
+  {
+    $set: {
+      watchList: [],
+    },
+  }
+);
+
+// db.movies.updateOne(
+//   { title: "The Bourne Ultimatum" },
+//   {
+//     $set: {
+//       imagePath: "https://alternativemovieposters.com/wp-content/uploads/2016/12/hans_bourne2.jpg",
+//     },
+//   }
+// );
+// db.movies.updateOne(
+//     { title: "Fight Club" },
+//     { $set: {
+//         tomatoRating: { rating: 79, audience: 96 },
+//         duration: "2h 19m",
+//         trailer: "https://www.youtube.com/watch?v=SUXWAEX2jlg"
+//     }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Princess Bride" },
+//   { $set: {
+//     tomatoRating: { rating: 98, audience: 94 },
+//     duration: "1h 38m",
+//     trailer: "https://www.youtube.com/watch?v=O3CIXEAjcc8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Lord of the Rings: The Fellowship of the Ring" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 95},
+//     duration: "2h 58m",
+//     trailer: "https://www.youtube.com/watch?v=V75dMMIW2B4"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Lord of the Rings: The Return of the King" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 95},
+//     duration: "3h 21m",
+//     trailer: "https://www.youtube.com/watch?v=r5X-hFf6Bwo"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Lord of the Rings: The Two Towers" },
+//   { $set: {
+//     tomatoRating: { rating: 95, audience: 95},
+//     duration: "2h 59m",
+//     trailer: "https://www.youtube.com/watch?v=LbfMDwc4azU"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Martian" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 91},
+//     duration: "2h 22m",
+//     trailer: "https://www.youtube.com/watch?v=ej3ioOneTy8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Shining" },
+//   { $set: {
+//     tomatoRating: { rating: 83, audience: 93},
+//     duration: "2h 22m",
+//     trailer: "https://www.youtube.com/watch?v=S014oGZiSdI"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Silence of the Lambs" },
+//   { $set: {
+//     tomatoRating: { rating: 95, audience: 95},
+//     duration: "1h 59m",
+//     trailer: "https://www.youtube.com/watch?v=W6Mm8Sbe__o"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Blade Runner" },
+//   { $set: {
+//     tomatoRating: { rating: 89, audience: 91},
+//     duration: "2h 2m",
+//     trailer: "https://www.youtube.com/watch?v=eogpIG53Cis"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Memento" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 94},
+//     duration: "1h 56m",
+//     trailer: "https://www.youtube.com/watch?v=4CV41hoyS8A"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Moneyball" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 86 },
+//     duration: "2h 13m",
+//     trailer: "https://www.youtube.com/watch?v=-4QPVo0UIzc"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Godfather" },
+//   { $set: {
+//     tomatoRating: { rating: 97, audience: 98 },
+//     duration: "2h 57m",
+//     trailer: "https://www.youtube.com/watch?v=UaVTIH8mujA"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Godfather Part 2" },
+//   { $set: {
+//     tomatoRating: { rating: 96, audience: 97 },
+//     duration: "3h 20m",
+//     trailer: "https://www.youtube.com/watch?v=9O1Iy9od7-A"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Gone Girl" },
+//   { $set: {
+//     tomatoRating: { rating: 88, audience: 87 },
+//     duration: "2h 29m",
+//     trailer: "https://www.youtube.com/watch?v=2-_-1nJf8Vg"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Road" },
+//   { $set: {
+//     tomatoRating: { rating: 74, audience: 68 },
+//     duration: "1h 50m",
+//     trailer: "https://www.youtube.com/watch?v=bO8EqMsxOiU"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Howl's Moving Castle" },
+//   { $set: {
+//     tomatoRating: { rating: 87, audience: 93 },
+//     duration: "1h 59m",
+//     trailer: "https://www.youtube.com/watch?v=iwROgK94zcM"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Hitchhiker's Guide to the Galaxy" },
+//   { $set: {
+//     tomatoRating: { rating: 60, audience: 65 },
+//     duration: "1h 49m",
+//     trailer: "https://www.youtube.com/watch?v=eLdiWe_HJv4"
+//   }}
+// )
+// db.movies.updateOne(
+//   { title: "Slumdog Millionaire" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 90 },
+//     duration: "1h 56m",
+//     trailer: "https://www.youtube.com/watch?v=AIzbwV7on6Q"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Dune" },
+//   { $set: {
+//     tomatoRating: { rating: 83, audience: 90 },
+//     duration: "2h 35m",
+//     trailer: "https://www.youtube.com/watch?v=n9xhJrPXop4"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Die Hard" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 94 },
+//     duration: "2h 11m",
+//     trailer: "https://www.youtube.com/watch?v=jaJuwKCmJbY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Ready Player One" },
+//   { $set: {
+//     tomatoRating: { rating: 72, audience: 77 },
+//     duration: "2h 20m",
+//     trailer: "https://www.youtube.com/watch?v=cSp1dM2Vj48"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "2001: A Space Odyssey" },
+//   { $set: {
+//     tomatoRating: { rating: 92, audience: 89 },
+//     duration: "2h 19m",
+//     trailer: "https://www.youtube.com/watch?v=oR_e9y-bka0"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Arrival" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 82 },
+//     duration: "1h 56m",
+//     trailer: "https://www.youtube.com/watch?v=tFMo3UJ4B4g"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Minority Report" },
+//   { $set: {
+//     tomatoRating: { rating: 89, audience: 80 },
+//     duration: "2h 24m",
+//     trailer: "https://www.youtube.com/watch?v=lG7DGMgfOb8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Count of Monte Cristo" },
+//   { $set: {
+//     tomatoRating: { rating: 73, audience: 88 },
+//     duration: "2h 11m",
+//     trailer: "https://www.youtube.com/watch?v=qesn8pV9yu8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Harry Potter and the Sorcerer's Stone" },
+//   { $set: {
+//     tomatoRating: { rating: 81, audience: 82 },
+//     duration: "2h 32m",
+//     trailer: "https://www.youtube.com/watch?v=VyHV0BRtdxo"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Hunger Games" },
+//   { $set: {
+//     tomatoRating: { rating: 84, audience: 81 },
+//     duration: "2h 22m",
+//     trailer: "https://www.youtube.com/watch?v=mfmrPu43DF8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Hunger Games: Catching Fire" },
+//   { $set: {
+//     tomatoRating: { rating: 90, audience: 89 },
+//     duration: "2h 26m",
+//     trailer: "https://www.youtube.com/watch?v=EAzGXqJSDJ8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Hunger Games: Mockingjay - Part 1" },
+//   { $set: {
+//     tomatoRating: { rating: 70, audience: 71 },
+//     duration: "2h 3m",
+//     trailer: "https://www.youtube.com/watch?v=3PkkHsuMrho"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Hunger Games: Mockingjay - Part 2" },
+//   { $set: {
+//     tomatoRating: { rating: 70, audience: 66 },
+//     duration: "2h 16m",
+//     trailer: "https://www.youtube.com/watch?v=n-7K_OjsDCQ"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Batman Begins" },
+//   { $set: {
+//     tomatoRating: { rating: 85, audience: 94 },
+//     duration: "2h 20m",
+//     trailer: "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Dark Knight" },
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 94 },
+//     duration: "2h 32m",
+//     trailer: "https://www.youtube.com/watch?v=EXeTwQWrcwY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Shawshank Redemption" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 98 },
+//     duration: "2h 22m",
+//     trailer: "https://www.youtube.com/watch?v=NmzuHjWmXOc"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Edge of Tomorrow" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 90 },
+//     duration: "1h 53m",
+//     trailer: "https://www.youtube.com/watch?v=JNwNXF9Y6kY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Jurassic Park" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 91 },
+//     duration: "2h 6m",
+//     trailer: "https://www.youtube.com/watch?v=QWBKEmWWL38"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Jaws" },
+//   { $set: {
+//     tomatoRating: { rating: 97, audience: 90 },
+//     duration: "2h 4m",
+//     trailer: "https://www.youtube.com/watch?v=U1fu_sA7XhE"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Watchmen" },
+//   { $set: {
+//     tomatoRating: { rating: 65, audience: 71 },
+//     duration: "2h 43m",
+//     trailer: "https://www.youtube.com/watch?v=wdiHDzT6YbQ"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "30 Days of Night" },
+//   { $set: {
+//     tomatoRating: { rating: 51, audience: 56 },
+//     duration: "1h 53m",
+//     trailer: "https://www.youtube.com/watch?v=OtU0UBnWik4"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Scott Pilgrim vs. the World" },
+//   { $set: {
+//     tomatoRating: { rating: 82, audience: 84 },
+//     duration: "1h 52m",
+//     trailer: "https://www.youtube.com/watch?v=7wd5KEaOtm4"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Green Mile" },
+//   { $set: {
+//     tomatoRating: { rating: 79, audience: 94 },
+//     duration: "3h 9m",
+//     trailer: "https://www.youtube.com/watch?v=Ki4haFrqSrw"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Bourne Identity" },
+//   { $set: {
+//     tomatoRating: { rating: 84, audience: 93 },
+//     duration: "1h 53m",
+//     trailer: "https://www.youtube.com/watch?v=FpKaB5dvQ4g"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Bourne Supremacy" },
+//   { $set: {
+//     tomatoRating: { rating: 82, audience: 90 },
+//     duration: "1h 48m",
+//     trailer: "https://www.youtube.com/watch?v=Y-HqyyfBbSo"
+//   }}
+// ),
+// db.movies.insertOne({
+//   title: "The Bourne Ultimatum",
+//   releaseYear: 2007,
+//   genre: {
+//     name: "Action",
+//     description: "Action films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Jason Bourne dodges a ruthless C.I.A. official and his Agents from a new assassination program while searching for the origins of his life as a trained killer.",
+//   actors: ["Matt Damon", "Julia Stiles", "Joan Allen", "David Strathairn", "Edgar Ramirez"],
+//   featured: false,
+//   book: { title: "The Bourne Ultimatum", author: "Robert Ludlum" },
+//   director: {
+//     name: "Paul Greengrass",
+//     birth: "1947",
+//     bio: "Paul Greengrass was an American director, producer, screenwriter, and actor.",
+//   },
+//   imagePath: "https://en.wikipedia.org/wiki/The_Bourne_Ultimatum_(film)#/media/File:The_Bourne_Ultimatum_(2007_film_poster).jpg",
+//   duration: "1h 55m",
+//   trailer: "https://www.youtube.com/watch?v=ZT2ZxjUjSo0",
+//   tomatoRating: {
+//     rating: 92,
+//     audience: 91,
+//   }
+// }),
+// db.movies.updateOne(
+//   {  title: "Casino Royale"},
+//   { $set: {
+//     tomatoRating: { rating: 94, audience: 90 },
+//     duration: "2h 24m",
+//     trailer: "https://www.youtube.com/watch?v=36mnx8dBbGE"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Jojo Rabbit"},
+//   { $set: {
+//     tomatoRating: { rating: 80, audience: 94 },
+//     duration: "1h 48m",
+//     trailer: "https://www.youtube.com/watch?v=tL4McUzXfFI"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Never Let Me Go"},
+//   { $set: {
+//     tomatoRating: { rating: 71, audience: 70 },
+//     duration: "1h 44m",
+//     trailer: "https://www.youtube.com/watch?v=sXiRZhDEo8A"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Crazy Rich Asians"},
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 76 },
+//     duration: "2h 0m",
+//     trailer: "https://www.youtube.com/watch?v=ZQ-YX-5bAs0"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Shutter Island" },
+//   { $set: {
+//     tomatoRating: { rating: 69, audience: 77 },
+//     duration: "2h 18m",
+//     trailer: "https://www.youtube.com/watch?v=v8yrZSkKxTA"
+//   }}
+// ),
+// db.movies.insertOne({
+//   title: "The Big Short",
+//   releaseYear: 2015,
+//   genre: {
+//     name: "Comedy",
+//     description: "Comedy films are characterized by a strong focus on the comedy side of things.",
+//   },
+//   description: "In 2006-2007 a group of investors bet against the United States mortgage market. In their research, they discover how flawed and corrupt the market is.",
+//   actors: ["Christian Bale", "Steve Carell", "Ryan Gosling", "Brad Pitt"],
+//   featured: false,
+//   book: { title: "The Big Short", author: "Michael Lewis" },
+//   director: {
+//     name: "Adam McKay",
+//     birth: "1955",
+//     description: "Adam McKay is an American film director, producer, screenwriter, and comedian. McKay began his career as a head writer for the NBC sketch comedy show Saturday Night Live from 1995 to 2001.",
+//   },
+//   imagePath: "https://upload.wikimedia.org/wikipedia/en/1/16/The_Big_Short_%282015_film_poster%29.png",
+//   duration: "2h 10m",
+//   trailer: "https://www.youtube.com/watch?v=vgqG3ITMv1Q",
+//   tomatoRating: {
+//     rating: 89,
+//     audience: 88,
+//   },
+// }),
+// db.movies.updateOne(
+//   { title: "Stardust" },
+//   { $set: {
+//     tomatoRating: { rating: 77, audience: 86 },
+//     duration: "2h 8m",
+//     trailer: "https://www.youtube.com/watch?v=-wwv427DAvA"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Girl with the Dragon Tattoo" },
+//   { $set: {
+//     tomatoRating: { rating: 86, audience: 86 },
+//     duration: "2h 38m",
+//     trailer: "https://www.youtube.com/watch?v=DqQe3OrsMKI"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Coraline" },
+//   { $set: {
+//     tomatoRating: { rating: 90, audience: 74 },
+//     duration: "1h 40m",
+//     trailer: "https://www.youtube.com/watch?v=m9bOpeuvNwY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Maze Runner" },
+//   { $set: {
+//     tomatoRating: { rating: 65, audience: 68 },
+//     duration: "1h 53m",
+//     trailer: "https://www.youtube.com/watch?v=AwwbhhjQ9Xk"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Wizard of Oz" },
+//   { $set: {
+//     tomatoRating: { rating: 98, audience: 89 },
+//     duration: "1h 41m",
+//     trailer: "https://www.youtube.com/watch?v=H_3T4DGw10U"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Carrie" },
+//   { $set: {
+//     tomatoRating: { rating: 93, audience: 77 },
+//     duration: "1h 38m",
+//     trailer: "https://www.youtube.com/watch?v=j9Mg-GRS46Y"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Stand by Me" },
+//   { $set: {
+//     tomatoRating: { rating: 92, audience: 94 },
+//     duration: "1h 29m",
+//     trailer: "https://www.youtube.com/watch?v=jaiZ6ZQoO-Y"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Misery" },
+//   { $set: {
+//     tomatoRating: { rating: 91, audience: 90 },
+//     duration: "1h 47m",
+//     trailer: "https://www.youtube.com/watch?v=9HU-RfV7QA0"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "IT" },
+//   { $set: {
+//     tomatoRating: { rating: 86, audience: 84 },
+//     duration: "2h 15m",
+//     trailer: "https://www.youtube.com/watch?v=FnCdOQsX5kc"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "IT: Chapter Two" },
+//   { $set: {
+//     tomatoRating: { rating: 62, audience: 78 },
+//     duration: "2h 49m",
+//     trailer: "https://www.youtube.com/watch?v=xhJ5P7Up3jA"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Mist" },
+//   { $set: {
+//     tomatoRating: { rating: 73, audience: 65 },
+//     duration: "2h 5m",
+//     trailer: "https://www.youtube.com/watch?v=LhCKXJNGzN8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Forrest Gump" },
+//   { $set: {
+//     tomatoRating: { rating: 71, audience: 95 },
+//     duration: "2h 22m",
+//     trailer: "https://www.youtube.com/watch?v=bLvqoHBptjg"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Pride & Prejudice" },
+//   { $set: {
+//     tomatoRating: { rating: 87, audience: 89 },
+//     duration: "2h 8m",
+//     trailer: "https://www.youtube.com/watch?v=Ur_DIHs92NM"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Notebook" },
+//   { $set: {
+//     tomatoRating: { rating: 54, audience: 85 },
+//     duration: "2h 4m",
+//     trailer: "https://www.youtube.com/watch?v=BjJcYdEOI0k"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Fault in Our Stars" },
+//   { $set: {
+//     tomatoRating: { rating: 81, audience: 85 },
+//     duration: "2h 6m",
+//     trailer: "https://www.youtube.com/watch?v=9ItBvH5J6ss"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Little Women" },
+//   { $set: {
+//     tomatoRating: { rating: 95, audience: 92 },
+//     duration: "2h 15m",
+//     trailer: "https://www.youtube.com/watch?v=AST2-4db4ic"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "One Flew Over the Cuckoo's Nest" },
+//   { $set: {
+//     tomatoRating: { rating: 93, audience: 96 },
+//     duration: "2h 13m",
+//     trailer: "https://www.youtube.com/watch?v=OXrcDonY-B8"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Devil Wears Prada" },
+//   { $set: {
+//     tomatoRating: { rating: 75, audience: 76 },
+//     duration: "1h 49m",
+//     trailer: "https://www.youtube.com/watch?v=6ZOZwUQKu3E"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe" },
+//   { $set: {
+//     tomatoRating: { rating: 75, audience: 61 },
+//     duration: "2h 20m",
+//     trailer: "https://www.youtube.com/watch?v=usEkWtuNn-w"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Chronicles of Narnia: The Voyage of the Dawn Treader" },
+//   { $set: {
+//     tomatoRating: { rating: 50, audience: 58 },
+//     duration: "1h 52m",
+//     trailer: "https://www.youtube.com/watch?v=AON1-Ox-Llc"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Chronicles of Narnia: Prince Caspian" },
+//   { $set: {
+//     tomatoRating: { rating: 66, audience: 73 },
+//     duration: "2h 24m",
+//     trailer: "https://www.youtube.com/watch?v=zZfDS5eu7fA"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Schindler's List" },
+//   { $set: {
+//     tomatoRating: { rating: 98, audience: 97 },
+//     duration: "3h 15m",
+//     trailer: "https://www.youtube.com/watch?v=gG22XNhtnoY"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Raging Bull" },
+//   { $set: {
+//     tomatoRating: { rating: 92, audience: 93 },
+//     duration: "2h 8m",
+//     trailer: "https://www.youtube.com/watch?v=yUp6d79WRVI"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Breakfast at Tiffany's" },
+//   { $set: {
+//     tomatoRating: { rating: 88, audience: 91 },
+//     duration: "1h 55m",
+//     trailer: "https://www.youtube.com/watch?v=KlZ4fYqjGJI"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Matilda" },
+//   { $set: {
+//     tomatoRating: { rating: 92, audience: 73 },
+//     duration: "1h 33m",
+//     trailer: "https://www.youtube.com/watch?v=hUGHWje7liM"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Charlie and the Chocolate Factory" },
+//   { $set: {
+//     tomatoRating: { rating: 83, audience: 51 },
+//     duration: "1h 55m",
+//     trailer: "https://www.youtube.com/watch?v=OFVGCUIXJls"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "The Remains of the Day" },
+//   { $set: {
+//     tomatoRating: { rating: 96, audience: 89 },
+//     duration: "2h 15m",
+//     trailer: "https://www.youtube.com/watch?v=jALmEb72beg"
+//   }}
+// ),
+// db.movies.updateOne(
+//   { title: "Doctor Zhivago" },
+//   { $set: {
+//     tomatoRating: { rating: 82, audience: 88 },
+//     duration: "3h 17m",
+//     trailer: "https://www.youtube.com/watch?v=CGGr21PilKY"
+//   }}
+// )
+
+// db.movies.insertOne({
+//   title: "Carrie",
+//   releaseYear: 1976,
+//   genre: {
+//     name: "Horror",
+//     description: "Horror films are often based on real events or fictional characters.",
+//   },
+//   description:
+//     "Carrie White, a shy, friendless teenage girl who is sheltered by her domineering, religious mother, unleashes her telekinetic powers after being humiliated by her classmates at her senior prom.",
+//   actors: ["Sissy Spacek", "Piper Laurie", "Amy Irving", "John Travolta"],
+//   featured: false,
+//   book: { title: "Carrie", author: "Stephen King" },
+//   director: {
+//     name: "Brian De Palma",
+//     birth: "1940",
+//     bio: "Brian Russell De Palma is an American film director and screenwriter. With a career spanning over 50 years, he is best known for his work in the suspense, crime and psychological thriller genres.",
+//   },
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/09/carriebg.jpg",
+// });
+// db.movies.insertOne({
+//   title: "Stand by Me",
+//   releaseYear: 1986,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "After the death of one of his friends, a writer recounts a childhood journey with his friends to find the body of a missing boy.",
+//   actors: ["Wil Wheaton", "Corey Feldman", "River Phoenix", "Jerry O’Connell", "Kiefer Sutherland"],
+//   featured: false,
+//   book: { title: "The Body", author: "Stephen King" },
+//   director: {
+//     name: "Rob Reiner",
+//     birth: "1946",
+//     bio: 'Robert Reiner is an American actor and filmmaker. As an actor, Reiner first came to national prominence with the role of Michael "Meathead" Stivic on the CBS sitcom All in the Family, a performance that earned him two Primetime Emmy Awards.',
+//   },
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2018/01/dani_standbyme.jpg",
+// });
+// db.movies.insertOne({
+//   title: "Misery",
+//   releaseYear: 1990,
+//   genre: {
+//     name: "Horror",
+//     description: "Horror films are often based on real events or fictional characters.",
+//   },
+//   description:
+//     "After a famous author is rescued from a car crash by a fan of his novels, he comes to realize that the care he is receiving is only the beginning of a nightmare of captivity and abuse.",
+//   actors: ["James Caan", "Kathy Bates", "Richard Farnsworth"],
+//   director: {
+//     name: "Rob Reiner",
+//     birth: "1946",
+//     bio: 'Robert Reiner is an American actor and filmmaker. As an actor, Reiner first came to national prominence with the role of Michael "Meathead" Stivic on the CBS sitcom All in the Family, a performance that earned him two Primetime Emmy Awards.',
+//   },
+//   featured: false,
+//   book: { title: "Misery", author: "Stephen King" },
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2016/04/szabo_misery.jpg",
+// });
+// db.movies.insertOne({
+//   title: "IT",
+//   releaseYear: 2017,
+//   genre: {
+//     name: "Horror",
+//     description: "Horror films are often based on real events or fictional characters.",
+//   },
+//   description:
+//     "In the summer of 1989, a group of bullied kids band together to destroy a shape-shifting monster, which disguises itself as a clown and preys on the children of Derry, their small Maine town.",
+//   actors: [
+//     "Bill Skarsgård",
+//     "Jaeden Martell",
+//     "Finn Wolfhard",
+//     "Sophia Lillis",
+//     "Jeremy Ray Taylor",
+//     "Chosen Jacobs",
+//     "Jack Dylan Grazer",
+//   ],
+//   director: {
+//     name: "Andy Muschietti",
+//     birth: "1973",
+//     bio: "Andrés Walter Muschietti is an Argentine filmmaker who achieved wide recognition with the 2013 film Mama which he made with Neil Cross and his older sister, producer and screenwriter Barbara Muschietti, based on their three-minute film of the same name.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/files/9b69c0d073be29d0ddca371a222fab61_c475c7a8-ada0-42fb-a3d7-56b6088e84d0_480x.progressive.jpg?v=1688134673",
+//   book: { title: "IT", author: "Stephen King" },
+// });
+// db.movies.insertOne({
+//   title: "IT: Chapter Two",
+//   releaseYear: 2019,
+//   genre: {
+//     name: "Horror",
+//     description: "Horror films are often based on real events or fictional characters.",
+//   },
+//   description:
+//     "Twenty-seven years after their first encounter with the terrifying Pennywise, the Losers Club have grown up and moved away, until a devastating phone call brings them back.",
+//   actors: [
+//     "Bill Skarsgård",
+//     "Jessica Chastain",
+//     "James McAvoy",
+//     "Bill Hader",
+//     "Isaiah Mustafa",
+//     "Jay Ryan",
+//     "James Ransone",
+//   ],
+//   director: {
+//     name: "Andy Muschietti",
+//     birth: "1973",
+//     bio: "Andrés Walter Muschietti is an Argentine filmmaker who achieved wide recognition with the 2013 film Mama which he made with Neil Cross and his older sister, producer and screenwriter Barbara Muschietti, based on their three-minute film of the same name.",
+//   },
+//   featured: false,
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2019/09/morroni_it.jpg",
+//   book: { title: "IT", author: "Stephen King" },
+// });
+// db.movies.insertOne({
+//   title: "The Mist",
+//   releaseYear: 2007,
+//   genre: {
+//     name: "Horror",
+//     description: "Horror films are often based on real events or fictional characters.",
+//   },
+//   description:
+//     "A freak storm unleashes a species of bloodthirsty creatures on a small town, where a small band of citizens hole up in a supermarket and fight for their lives.",
+//   actors: ["Thomas Jane", "Marcia Gay Harden", "Laurie Holden"],
+//   director: {
+//     name: "Frank Darabont",
+//     bio: "Frank Darabont is an American film director, screenwriter, and producer. He is known for his work in science fiction, action, and adventure films.",
+//     birth: "1959",
+//   },
+//   featured: false,
+//   book: { title: "The Mist", author: "Stephen King" },
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2017/04/glitchway_mist.jpg",
+// });
+// db.movies.insertOne({
+//   title: "Forrest Gump",
+//   releaseYear: 1994,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
+//   actors: ["Tom Hanks", "Robin Wright", "Gary Sinise", "Sally Field"],
+//   director: {
+//     name: "Robert Zemeckis",
+//     birth: "1937",
+//     bio: "Robert Lee Zemeckis is an American filmmaker. He first came to public attention as the director of the action-adventure romantic comedy Romancing the Stone, the science-fiction comedy Back to the Future film trilogy, and the live-action/animated comedy Who Framed Roger Rabbit.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://alternativemovieposters.com/wp-content/uploads/2021/09/FORREST-GUMP-RICCARDO-ROSANNA.jpg",
+//   book: { title: "Forrest Gump", author: "Winston Groom" },
+// });
+// db.movies.insertOne({
+//   title: "Pride & Prejudice",
+//   releaseYear: 2005,
+//   genre: {
+//     name: "Romance",
+//     description: "romance films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?",
+//   actors: [
+//     "Keira Knightley",
+//     "Matthew Macfadyen",
+//     "Brenda Blethyn",
+//     "Donald Sutherland",
+//     "Rosamund Pike",
+//     "Jena Malone",
+//     "Carey Mulligan",
+//   ],
+//   director: {
+//     name: "Joe Wright",
+//     birth: "1972",
+//     bio: "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/5577e4e7f95f3214748b46ab98e376c9_e381fd8f-3078-4f30-9711-321eb96e30c4_480x.progressive.jpg?v=1573617183",
+//   book: { title: "Pride & Prejudice", author: "Jane Austen" },
+// });
+// db.movies.insertOne({
+//   title: "The Notebook",
+//   releaseYear: 2004,
+//   genre: {
+//     name: "Romance",
+//     description: "romance films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
+//   actors: ["Ryan Gosling", "Rachel McAdams", "Gena Rowlands", "James Garner"],
+//   director: {
+//     name: "Nick Cassavetes",
+//     birth: "1959",
+//     bio: "Nicholas David Rowland Cassavetes is an American actor, director, and writer. He has directed such films as She's So Lovely, John Q., The Notebook, Alpha Dog, and My Sister's Keeper.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/files/scan_d42fcc7e-405b-4a98-9963-dea49ae1d35b_480x.progressive.jpg?v=1690917858",
+//   book: { title: "The Notebook", author: "Nicholas Sparks" },
+// });
+// db.movies.insertOne({
+//   title: "The Fault in Our Stars",
+//   releaseYear: 2014,
+//   genre: {
+//     name: "Romance",
+//     description: "romance films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Two teenage cancer patients begin a life-affirming journey to visit a reclusive author in Amsterdam.",
+//   actors: ["Shailene Woodley", "Ansel Elgort", "Laura Dern", "Nat Wolff", "Willem Dafoe"],
+//   director: {
+//     name: "Josh Boone",
+//     birth: "1979",
+//     bio: "Josh Boone is an American filmmaker. He is best known for directing the romantic drama The Fault in Our Stars, based on the novel of the same name. Boone also wrote and directed the romantic comedy Stuck in Love and the superhero horror film The New Mutants.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/43540c0fe84fbdcf7039b4d24bfce7af_1981b45e-2321-4b9c-8ff6-ed1e5d2a8ea3_480x.progressive.jpg?v=1573594989",
+//   book: { title: "The Fault in Our Stars", author: "John Green" },
+// });
+// db.movies.insertOne({
+//   title: "Little Women",
+//   releaseYear: 2019,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Jo March reflects back and forth on her life, telling the beloved story of the March sisters - four young women, each determined to live life on her own terms.",
+//   actors: [
+//     "Saoirse Ronan",
+//     "Emma Watson",
+//     "Florence Pugh",
+//     "Eliza Scanlen",
+//     "Laura Dern",
+//     "Timothée Chalamet",
+//     "Bob Odenkirk",
+//   ],
+//   director: {
+//     name: "Greta Gerwig",
+//     birth: "1983",
+//     bio: "Greta Celeste Gerwig is an American actress, screenwriter, director, and producer. She first garnered attention after working on and appearing in several mumblecore films. She has since transitioned her career from acting and co-writing independent films to directing films from major studios.",
+//   },
+//   featured: false,
+//   imagePath: "https://www.movieposters.com/cdn/shop/products/little_women_480x.progressive.jpg?v=1579037732",
+//   book: { title: "Little Women", author: "Louisa May Alcott" },
+// });
+// db.movies.insertOne({
+//   title: "One Flew Over the Cuckoo's Nest",
+//   releaseYear: 1975,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "In the Fall of 1963, a Korean War veteran and criminal pleads insanity and is admitted to a mental institution, where he rallies up the scared patients against the tyrannical nurse.",
+//   actors: ["Jack Nicholson", "Peter Brocco", "Louise Fletcher", "Michael Berryman", "Danny DeVito"],
+//   director: {
+//     name: "Milos Forman",
+//     birth: "1932",
+//     death: "2018",
+//     bio: "Milos Forman is an American filmmaker. He is best known for directing the films The Pianist, The Deer Hunter, and The Last Station.",
+//   },
+//   featured: false,
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2016/04/szabo_cuckoo.jpg",
+//   book: { title: "One Flew Over the Cuckoo's Nest", author: "Ken Kesey" },
+// });
+// db.movies.insertOne({
+//   title: "The Devil Wears Prada",
+//   releaseYear: 2006,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A smart but socially awkward graduate lands a job as an assistant to Miranda Priestly, the demanding editor-in-chief of a high fashion magazine.",
+//   actors: ["Anne Hathaway", "Meryl Streep", "Adrian Grenier", "Emily Blunt", "Stanley Tucci", "Simon Baker"],
+//   director: {
+//     name: "David Frankel",
+//     birth: "1959",
+//     bio: "David Frankel is an American filmmaker. He is best known for directing the films The Devil Wears Prada, The Curious Case of Benjamin Button, and The Kids Are All Right.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/devilwearsprada11_480x.progressive.jpg?v=1620228599",
+//   book: { title: "The Devil Wears Prada", author: "Lauren Weisberger" },
+// });
+// db.movies.insertOne({
+//   title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+//   releaseYear: 2005,
+//   genre: {
+//     name: "Fantasy",
+//     description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Four kids travel through a wardrobe to the land of Narnia and learn of their destiny to free it with the guidance of a mystical lion.",
+//   actors: [
+//     "Tilda Swinton",
+//     "Georgie Henley",
+//     "William Moseley",
+//     "Skandar Keynes",
+//     "Anna Popplewell",
+//     "James McAvoy",
+//   ],
+//   director: {
+//     name: "Andrew Adamson",
+//     birth: "1966",
+//     bio: "Andrew Ralph Adamson MNZM is a New Zealand film director, producer and screenwriter. He is best known for directing the DreamWorks animated films Shrek and its sequel Shrek 2.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/0bbe1f686feb56b250b3b88fc59e2abc_e54290ed-78cd-4fda-b211-0b3a2c45d507_480x.progressive.jpg?v=1573587331",
+//   book: { title: "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", author: "C.S. Lewis" },
+// });
+// db.movies.insertOne({
+//   title: "The Chronicles of Narnia: The Voyage of the Dawn Treader",
+//   releaseYear: 2010,
+//   genre: {
+//     name: "Fantasy",
+//     description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "Lucy and Edmund Pevensie return to Narnia with their cousin Eustace where they meet up with Prince Caspian for a trip across the sea aboard the royal ship The Dawn Treader. Along the way they encounter dragons, dwarves, merfolk, and a band of lost warriors before reaching the edge of the world.",
+//   actors: [
+//     "Ben Barnes",
+//     "Skandar Keynes",
+//     "Georgie Henley",
+//     "Will Poulter",
+//     "Anna Popplewell",
+//     "Tilda Winton",
+//     "William Moseley",
+//     "Gary Sweet",
+//   ],
+//   director: {
+//     name: "Michael Apted",
+//     birth: "1941",
+//     death: "2021",
+//     bio: "Michael David Apted, CMG was a British television and film director and producer. Apted began working in television and directed the Up documentary series. He later directed Coal Miner's Daughter, which was nominated for seven Academy Awards including Best Picture.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://fr.originalfilmart.com/cdn/shop/products/Chronicles_of_Narnia_The_Voyage_of_the_Dawn_Treader_2010_original_film_art_5000x.jpg?v=1562543431",
+//   book: { title: "The Chronicles of Narnia: The Voyage of the Dawn Treader", author: "C.S. Lewis" },
+// });
+// db.movies.insertOne({
+//   title: "The Chronicles of Narnia: Prince Caspian",
+//   releaseYear: 2008,
+//   genre: {
+//     name: "Fantasy",
+//     description: "Fantasy films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "The Pevensie siblings return to Narnia, where they are enlisted to once again help ward off an evil king and restore the rightful heir to the land's throne, Prince Caspian.",
+//   director: {
+//     name: "Andrew Adamson",
+//     birth: "1966",
+//     bio: "Andrew Ralph Adamson MNZM is a New Zealand film director, producer and screenwriter. He is best known for directing the DreamWorks animated films Shrek and its sequel Shrek 2.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/9ec541520233e3f56076251e2d2cd1f4_480x.progressive.jpg?v=1573588860",
+//   book: { title: "The Chronicles of Narnia: Prince Caspian", author: "C.S. Lewis" },
+// });
+// db.movies.insertOne({
+//   title: "Schindler's List",
+//   releaseYear: 1993,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+//   actors: ["Liam Neeson", "Ralph Fiennes", "Ben Kingsley", "Caroline Goodall", "Jonathan Sagall"],
+//   director: {
+//     name: "Steven Spielberg",
+//     birth: "1946",
+//     bio: "One of the most influential personalities in the history of cinema, Steven Spielberg is Hollywood's best known director and one of the wealthiest filmmakers in the world. He has an extraordinary number of commercially successful and critically acclaimed credits to his name, either as a director, producer or writer since launching the summer blockbuster with Jaws (1975), and he has done more to define popular film-making since the mid-1970s than anyone else.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/891b33652234029b0638095439f27d81_92f913d0-f315-4c5d-a8d5-93aae832f7bf_480x.progressive.jpg?v=1573651232",
+//   book: { title: "Schindler's List", author: "Thomas Keneally" },
+// });
+// db.movies.insertOne({
+//   title: "Raging Bull",
+//   releaseYear: 1980,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "The life of boxer Jake LaMotta, whose violence and temper that led him to the top in the ring destroyed his life outside of it.",
+//   actors: ["Robert De Niro", "Joe Pesci", "Cathy Moriarty", "Frank Vincent"],
+//   director: {
+//     name: "Martin Scorsese",
+//     bio: "Martin Charles Scorsese is an American and Italian film director, producer, screenwriter and actor. Scorsese emerged as one of the major figures of the New Hollywood era.",
+//     birth: "1942",
+//   },
+//   featured: false,
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/03/ragingbullbg1.jpg",
+//   book: { title: "Raging Bull: My Story", author: "Jake LaMotta" },
+// });
+// db.movies.insertOne({
+//   title: "Breakfast at Tiffany's",
+//   releaseYear: 1961,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A young New York socialite becomes interested in a young man who has moved into her apartment building, but her past threatens to get in the way.",
+//   actors: ["Audrey Hepburn", "George Peppard", "Patricia Neal", "Buddy Ebsen"],
+//   director: {
+//     name: "Blake Edwards",
+//     birth: "1922",
+//     death: "2010",
+//     bio: "Blake Edwards was an American film director, producer, screenwriter, and actor. Edwards began his career in the 1940s as an actor, but he soon began writing screenplays and radio scripts before turning to producing and directing in television and films.",
+//   },
+//   featured: false,
+//   imagePath: "https://alternativemovieposters.com/wp-content/uploads/2013/05/tiffanysbg.jpg",
+//   book: { title: "Breakfast at Tiffany's", author: "Truman Capote" },
+// });
+// db.movies.insertOne({
+//   title: "Matilda",
+//   releaseYear: 1996,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A girl gifted with a keen intellect and psychic powers uses both to deal with her crude, distant family and free her kind teacher from their sadistic headmistress.",
+//   actors: ["Danny DeVito", "Rhea Perlman", "Mara Wilson", "Embeth Davidtz", "Paul Reubens"],
+//   director: {
+//     name: "Danny DeVito",
+//     birth: "1944",
+//     bio: "Daniel Michael DeVito Jr. is an American actor, comedian, and filmmaker. He gained prominence for his portrayal of the taxi dispatcher Louie De Palma in the television series Taxi, which won him a Golden Globe Award and an Emmy Award. He plays Frank Reynolds on the FX and FXX sitcom It's Always Sunny in Philadelphia.",
+//   },
+//   featured: false,
+//   imagePath: "https://www.movieposters.com/cdn/shop/products/Matilda.11x17_480x.progressive.jpg?v=1676043000",
+//   book: { title: "Matilda", author: "Roald Dahl" },
+// });
+// db.movies.insertOne({
+//   title: "Charlie and the Chocolate Factory",
+//   releaseYear: 2005,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A young boy wins a tour through the most magnificent chocolate factory in the world, led by the world's most unusual candy maker.",
+//   actors: ["Johnny Depp", "Freddie Highmore", "David Kelly", "Helena Bonham Carter"],
+//   director: {
+//     name: "Tim Burton",
+//     birth: "1958",
+//     bio: "Timothy Walter Burton is an American filmmaker, animator, producer, screenwriter, and artist. Known for pioneering goth culture in the American film industry, Burton is revered for his fantasy, horror, and romantic films. ",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/46a3e3d50f8e50997af061201fea7385_a1b9810c-e37f-40e7-a85c-3a0b86cfab7b_480x.progressive.jpg?v=1573653669",
+//   book: { title: "Charlie and the Chocolate Factory", author: "Roald Dahl" },
+// });
+// db.movies.insertOne({
+//   title: "The Remains of the Day",
+//   releaseYear: 1993,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "A butler who sacrificed body and soul to service in the years leading up to World War II realizes too late how misguided his loyalty was to his lordly employer.",
+//   actors: ["Anthony Hopkins", "Emma Thompson", "John Haycraft", "Christopher Reeve"],
+//   director: {
+//     name: "James Ivory",
+//     birth: "1928",
+//     bio: "James Francis Ivory is an American film director, producer, and screenwriter. For many years, he worked extensively with Indian-born film producer Ismail Merchant, his domestic as well as professional partner, and with screenwriter Ruth Prawer Jhabvala.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/69150bb532a8e9b04922f54579f6faa0_480x.progressive.jpg?v=1573590292",
+//   book: { title: "The Remains of the Day", author: "Kazuo Ishiguro" },
+// });
+// db.movies.insertOne({
+//   title: "Doctor Zhivago",
+//   releaseYear: 1965,
+//   genre: {
+//     name: "Drama",
+//     description: "Drama films are characterized by a strong focus on the emotions and intense situations.",
+//   },
+//   description:
+//     "The life of a Russian physician and poet who, although married to another, falls in love with a political activist's wife and experiences hardship during World War I and then the October Revolution.",
+//   actors: ["Omar Sharif", "Julie Christie", "Geraldine Chaplin"],
+//   director: {
+//     name: "David Lean",
+//     birth: "1908",
+//     death: "1991",
+//     bio: "David Lean was an English film director and producer, who was ironically raised in a strict Quaker family and wasn't allowed to go to the movies. He is best known for directing the films Lawrence of Arabia (1962), Doctor Zhivago (1965), and A Passage to India (1984).",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/356bbf5f2ec642a57a6bf117921869b3_baccfcd9-5587-43b0-aec4-cd52444a25aa_480x.progressive.jpg?v=1573588623",
+//   book: { title: "Doctor Zhivago", author: "Boris Pasternak" },
+// });
+// db.movies.insertOne({
+//   title: "The Hunger Games: Catching Fire",
+//   releaseYear: 2013,
+//   genre: {
+//     name: "Adventure",
+//     description:
+//       "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
+//   },
+//   description:
+//     "Katniss Everdeen and Peeta Mellark become targets of the Capitol after their victory in the 74th Hunger Games sparks a rebellion in the Districts of Panem.",
+//   actors: [
+//     "Jennifer Lawrence",
+//     "Josh Hutcherson",
+//     "Liam Hemsworth",
+//     "Elizabeth Banks",
+//     "Donald Sutherland",
+//     "Woody Harrelson",
+//     "Stanley Tucci",
+//     "Phillip Seymour Hoffman",
+//   ],
+//   director: {
+//     name: "Francis Lawrence",
+//     birth: "1971",
+//     bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/ed86e3334475bccbee0b80c9375778af_77f18b02-500d-4e7e-a1ea-e155d3d6203c_480x.progressive.jpg?v=1573587557",
+//   book: { title: "The Hunger Games: Catching Fire", author: "Suzanne Collins" },
+// });
+// db.movies.insertOne({
+//   title: "The Hunger Games: Mockingjay - Part 1",
+//   releaseYear: 2014,
+//   genre: {
+//     name: "Adventure",
+//     description:
+//       "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
+//   },
+//   description:
+//     "Katniss Everdeen is in District 13 after she shatters the games forever. Under the leadership of President Coin and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta and a nation moved by her courage.",
+//   actors: [
+//     "Jennifer Lawrence",
+//     "Josh Hutcherson",
+//     "Liam Hemsworth",
+//     "Elizabeth Banks",
+//     "Donald Sutherland",
+//     "Woody Harrelson",
+//     "Phillip Seymour Hoffman",
+//     "Jena Malone",
+//     "Jeffrey Wright",
+//     "Willow Shields",
+//     "Julianna Moore",
+//     "Stanley Tucci",
+//     "Mahershala Ali",
+//   ],
+//   director: {
+//     name: "Francis Lawrence",
+//     birth: "1971",
+//     bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/acd369d0dfac5a1df9810fd86ddc6096_1dd0870e-13a4-4c86-936a-0d093dde5a75_480x.progressive.jpg?v=1573651201",
+//   book: { title: "The Hunger Games: Mockingjay", author: "Suzanne Collins" },
+// });
+// db.movies.insertOne({
+//   title: "The Hunger Games: Mockingjay - Part 2",
+//   releaseYear: 2015,
+//   genre: {
+//     name: "Adventure",
+//     description:
+//       "Implies a narrative that is defined by a journey (often including some form of pursuit) and is usually located within a fantasy or exoticized setting. Typically, though not always, such stories include the quest narrative.",
+//   },
+//   description:
+//     "Katniss and a team of rebels from District 13 prepare for the final battle that will decide the fate of Panem.",
+//   actors: [
+//     "Jennifer Lawrence",
+//     "Josh Hutcherson",
+//     "Liam Hemsworth",
+//     "Elizabeth Banks",
+//     "Donald Sutherland",
+//     "Woody Harrelson",
+//     "Phillip Seymour Hoffman",
+//     "Jena Malone",
+//     "Willow Shields",
+//     "Julianna Moore",
+//     "Stanley Tucci",
+//     "Mahershala Ali",
+//     "Jeffrey Wright",
+//   ],
+//   director: {
+//     name: "Francis Lawrence",
+//     birth: "1971",
+//     bio: "Francis Lawrence is a well-known film director, producer, and editor. He has directed several successful movies, including Hunger Games and Mockingjay parts 1 and 2. He is known for his work in the science fiction and action genres, and has received several awards for his contributions to the film industry.",
+//   },
+//   featured: false,
+//   imagePath:
+//     "https://www.movieposters.com/cdn/shop/products/459f5ad92da161741212395c3cd2e8da_c5aa06e6-549f-4de8-9ba0-d97ae9856f27_480x.progressive.jpg?v=1660245264",
+//   book: { title: "The Hunger Games: Mockingjay", author: "Suzanne Collins" },
+// });
 
 // db.movies.insertOne({
 //   title: "The Shining",
