@@ -1,4 +1,212 @@
-import ".profile-view.scss";
 import React from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import "./profile-view.scss";
+import { MovieCard } from "../MovieCard/movie-card";
+import { SimilarCard } from "../MovieCard/similar-card";
 
-export const ProfileView = () => {};
+// TODO: 3 sections that I can make components for are user information, a form for editing user information, and a list of user's favorite movies.
+// TODO: I definitely think I should make a component for at least the favorite movies section, because I'd still like to try to add it as a sidebar to MainView and MovieView (tablet and desktop sizes at least).
+// TODO: I'd also like to make the favorite's list customizable by the user so they can order it and rank them according to their personal preferences.
+// TODO: The idea of allowing users to rank each movie is also still something I'd like to try, and that would factor into the ranking system as well. It'd be the default sorting/ranking criteria, then the user could order the movies that have the same ranking otherwise throw an error and be prompted to rank the movie higher if they want to order it that way?
+// TODO: Aside from the favorites list, I could create a "watchlist" of the movie's that the user hasn't seen yet but would like to.
+// TODO: Another cool thing I could do is to add the ability on the main page for users to filter out movies that they've favorited and/or ranked and only see unwatched movies. Obviously to also have an option to see only the movies on their watchlist (which a full list of will be located on their profile page).
+// ! I need to code the functions(?) that'll allow the users to add or remove movies from their favorite list, as well as add or remove movies from their watch list. I BELIEVE these will have to be implemented in the movieCard component. I'll only need to copy the code for REMOVING movies here.
+// ! I also need to allow users to be able to "deregister" their account
+// TODO: Maybe create another separate Card component for the favorite movie's list cards and experiment with different styles, such as having the posters smaller and to the left with all the information, including the description, to the right. That would make it far more like a list and help if I do set up the ranking/rating system.
+
+export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
+  // const [user, setUser] = useState("");
+
+  const favoriteMoviesList = movies.filter((m) => {
+    return user.favoriteMovies.includes(m.id);
+  });
+  const watchlistList = movies.filter((m) => {
+    return user.watchList.includes(m.id);
+  });
+
+  console.log(user);
+
+  const handleUserUpdate = (event) => {
+    event.preventDefault();
+
+    const updatedUser = {
+      username,
+      email,
+      password,
+      birthday,
+    };
+
+    fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}`, {
+      method: "PUT",
+      body: JSON.stringify(updatedUser),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+        // localStorage.setItem("user", JSON.stringify(data));
+        alert("Successfully updated user info!");
+        // window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error updating your info:", error);
+      });
+  };
+
+  //Function to delete the user's account
+  const handleUserDelete = (event) => {
+    event.preventDefault();
+
+    fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        alert("Successfully deleted user account!");
+        // onLogout();
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting your account:", error);
+      });
+  };
+
+  //How do I add the ability for the user to order the f
+  //I think it'd be easiest to start with... well I was gonna say the ability to order their favoriteMovies list, but it might actually be easier to start with giving user's the ability to rank all their movies then I simply
+
+  return (
+    <Container>
+      <Row className="account-info mt-5 mb-5">
+        <Col md={6}>
+          <div className="profile-info">
+            <h3>{user.username}'s current info</h3>
+            <p>
+              <strong>Name: </strong>
+              {user.username}
+            </p>
+            <p>
+              <strong>Email: </strong> {user.email}
+            </p>
+            {user.birthday ? (
+              <p>
+                <strong>Birthday: </strong> {user.birthday.slice(0, 10)}
+              </p>
+            ) : null}
+          </div>
+          <br />
+          <div className="delete-account d-flex">
+            <h4 className="mt-3">Want to delete your account? </h4>
+            <p>Careful! There's no confirmation or turning back.</p>
+            <Button variant="danger" onClick={handleUserDelete}>
+              Delete Account
+            </Button>
+          </div>
+        </Col>
+        <Col md={6}>
+          <h3>Update your info</h3>
+          <Form onSubmit={(e) => handleUserUpdate(e, updatedUserInfo)}>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control
+                type="text"
+                // defaultValue={user.username}
+                name="username"
+                placeholder="Enter new username..."
+                onChange={(e) => setUser({ ...user, username: e.target.value })}
+                minLength={3}
+                // required
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Enter new password..."
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
+              />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                type="email"
+                // defaultValue={user.email}
+                placeholder="Enter new email address..."
+                name="email"
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                // required
+              />
+            </Form.Group>
+            <Form.Group controlId="formBirthday" className="mb-3">
+              <Form.Label>Birthday:</Form.Label>
+              <Form.Control
+                type="date"
+                // value={user.birthday}
+                name="birthday"
+                onChange={(e) => setUser({ ...user, birthday: e.target.value })}
+              />
+            </Form.Group>
+            <Button variant="success" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+      <hr />
+      <Row className="mt-3">
+        <h2>{user.username}'s Favorite Movies:</h2>
+        {user.favoriteMovies.length > 0 ? (
+          favoriteMoviesList.map((movie) => {
+            return (
+              <Col md={3} key={movie.id}>
+                <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
+              </Col>
+            );
+          })
+        ) : (
+          <p>You haven't added any favorites yet. Sad :(</p>
+        )}
+      </Row>
+      <hr />
+      <Row className="mt-5">
+        <h2>{user.username}'s Watchlist:</h2>
+        {user.watchList.length > 0 ? (
+          watchlistList.map((movie) => {
+            return (
+              <Col md={3} key={movie.id}>
+                <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
+              </Col>
+            );
+          })
+        ) : (
+          <p>You've watched every movie or haven't added any to your watchlist yet.</p>
+        )}
+      </Row>
+    </Container>
+  );
+
+  // return (
+  //   <>
+  //     <UserInfo />
+  //     <UpdateInfo />
+  //     <FavoriteMovies />
+  //   </>
+  // );
+};
