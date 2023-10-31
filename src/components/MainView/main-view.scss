@@ -1,16 +1,30 @@
 
 $secondaryBGMixer: rgba(156, 169, 182, 0.7);
+$primaryColor: seagreen;
 
-.searchBar {
-  display: inline-flex;
-  margin-bottom: 20px;
-  width: 200px;
-  height: auto;
+.searchContainer {
+  flex-direction: column;
+}
+
+input.search-bar, select.filter-bar {
+  max-width: 300px !important;
+  margin: 5px auto;
+  border-color: $primaryColor !important;
+  // color: $primaryColor !important;
 }
 
 .movieCard:hover {
   animation: .5s cardPop;
   cursor: pointer;
+}
+
+.loading {
+  font-size: 42px;
+  font-weight: bold;
+  color: $primaryColor;
+  text-align: center;
+  padding-top: 100px;
+  height: 100vh;
 }
 
 @keyframes cardPop {
