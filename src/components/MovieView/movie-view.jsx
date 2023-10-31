@@ -1,19 +1,131 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { MovieCard } from "../MovieCard/movie-card";
+import { SimilarCard } from "../MovieCard/similar-card";
 import { Col, Row, Container } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import {
+  AiFillYoutube,
+  AiFillHeart,
+  AiOutlineHeart,
+  AiOutlineArrowLeft,
+  AiOutlineEyeInvisible,
+  AiFillEye,
+} from "react-icons/ai";
+import { SiRottentomatoes } from "react-icons/si";
+import { LuPopcorn } from "react-icons/lu";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./movie-view.scss";
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, user, token, setUser }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { movieId } = useParams();
+  //Pull the movie ID from the URL and use it to find movie in movies array
 
   const movie = movies.find((m) => m.id === movieId);
 
+  const isFavorited = user && user.favoriteMovies.includes(movie.id);
+  const onWatchlist = user && user.watchList.includes(movie.id);
+
+  const handleAddToWatchlist = (e) => {
+    e.preventDefault();
+    if (user && !user.watchList.includes(movie.id)) {
+      fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}/watchlist/${movie.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log(response);
+            return response.json();
+          }
+        })
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((error) => {
+          console.error("Error adding your movie to watchlist:", error);
+        });
+    }
+  };
+
+  const handleRemoveFromWatchlist = (e) => {
+    e.preventDefault();
+    fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}/watchlist/${movie.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((error) => {
+        console.error("Error removing your movie from watchlist:", error);
+      });
+  };
+
+  const handleAddFavorite = () => {
+    if (user && !user.favoriteMovies.includes(movie.id)) {
+      fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}/${movie.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            console.log(response);
+            return response.json();
+          }
+        })
+        .then((data) => {
+          setUser(data);
+        })
+        .catch((error) => {
+          console.error("Error adding your movie to favorites:", error);
+        });
+    }
+  };
+
+  const handleRemoveFavorite = () => {
+    fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}/${movie.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((error) => {
+        console.error("Error removing your movie from favorites:", error);
+      });
+  };
+
+  //Setting up the arrays for similar movie sections (genre, director, actor, author)
   actorString = "";
   if (movie.actors.length > 1) {
     for (let i = 0; i < movie.actors.length; i++) {
@@ -25,7 +137,6 @@ export const MovieView = ({ movies }) => {
     }
   }
 
-  //Setting up the arrays for similar movie sections (genre, director, actor, author)
   let similarMoviesGenre = movies.filter((m) => {
     if (m.genre.name === movie.genre.name && m.title !== movie.title) {
       return m;
@@ -60,11 +171,12 @@ export const MovieView = ({ movies }) => {
     slidesToShow: 6,
     slidesToScroll: 4,
     initialSlide: 0,
-    nextArrow: <slickNextArrow />,
-    prevArrow: <slickPrevArrow />,
+    swipeToSlide: true,
+    // nextArrow: <slickNextArrow />,
+    // prevArrow: <slickPrevArrow />,
     responsive: [
       {
-        breakpoint: 1400,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
@@ -97,21 +209,6 @@ export const MovieView = ({ movies }) => {
       },
     ],
   };
-  // return (
-  // <Row className="movieviewRow">
-  //   {/* NavBar */}
-  //   <NavBar
-  //     user={user}
-  //     onLogout={() => {
-  //       setUser(null);
-  //       setToken(null);
-  //       localStorage.clear();
-  //     }}
-  //   />
-
-  // </Row>
-  // );
-  // }
 
   return (
     <Container className="movieViewContainer">
@@ -121,10 +218,46 @@ export const MovieView = ({ movies }) => {
         </Col>
         <Col className="movieviewInfo md={6}">
           <Col className="movieviewHeader">
+            <Col className="movieviewIcons d-flex">
+              {isFavorited ? (
+                <AiFillHeart
+                  style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
+                  onClick={handleRemoveFavorite}
+                />
+              ) : (
+                <AiOutlineHeart
+                  style={{ color: "seagreen", width: "30px", height: "30px" }}
+                  onClick={handleAddFavorite}
+                />
+              )}
+              {onWatchlist ? (
+                <AiFillEye
+                  style={{ color: "seagreen", width: "30px", height: "30px" }}
+                  onClick={handleRemoveFromWatchlist}
+                />
+              ) : (
+                <AiOutlineEyeInvisible
+                  style={{ color: "seagreen", width: "30px", height: "30px" }}
+                  onClick={handleAddToWatchlist}
+                />
+              )}
+            </Col>
             <h1>{movie.title}</h1>
             <p>
               <span>{movie.releaseYear}</span>
               <span> • {movie.genre.name}</span>
+              <span> • {movie.duration}</span>
+            </p>
+            <p className="movieviewRating">
+              <span>
+                <SiRottentomatoes color="tomato" />
+                {movie.tomatoRating.rating}%
+              </span>
+              <span>
+                {" "}
+                • <LuPopcorn color="red" />
+                {movie.tomatoRating.audience}%
+              </span>
             </p>
           </Col>
           <div className="movieviewInfo-containers">
@@ -140,40 +273,48 @@ export const MovieView = ({ movies }) => {
             <div className="movieviewDeets">{actorString}</div>
           </div>
           <div className="movieviewInfo-containers">
-            <span>Based on: </span>
-            <div>
-              <span>Title: </span>
-              <span className="movieviewDeets"> {movie.book.title}</span>
-              <span className="movieviewDeets">
-                <strong> By:</strong> {movie.book.author}
-              </span>
-            </div>
+            <span>Based on the book: </span>
+            <div className="movieviewDeets">{movie.book.title}</div>
           </div>
-          <Link to={`/`}>
-            <button className="back-button">Back</button>
-          </Link>
+          <div className="movieviewInfo-containers">
+            <span>Written by: </span>
+            <div className="movieviewDeets">{movie.book.author}</div>
+          </div>
+          <div className="btnContainer">
+            <a href={movie.trailer} target="_blank" rel="noreferrer">
+              <button className="trailer-button">
+                Watch <AiFillYoutube className="youtube-logo" size="25px" />
+                YouTube Trailer
+              </button>
+            </a>
+            <Link to={`/`} className="d-flex justify-content-center text-decoration-none">
+              <button className="back-button">
+                <AiOutlineArrowLeft />
+                Back
+              </button>
+            </Link>
+          </div>
         </Col>
       </Row>
+      {/* similarMovies sections */}
       <Row className="movieviewSimilar">
-        {/* similarMovies sections */}
         <Col className="movieviewSimilar">
           <h2>Other {movie.genre.name} Movies:</h2>
           <Slider {...settings}>
             {similarMoviesGenre.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} className="similarCard" />
+              <SimilarCard key={movie.id} movie={movie} />
             ))}
           </Slider>
           <h2>
             {similarMoviesDirector.length > 0
-              ? " Other Movies by Director (" + movie.director.name + "): "
+              ? " Other Movies Directed By " + movie.director.name + ": "
               : ""}
           </h2>
           <Slider {...settings}>
             {similarMoviesDirector.map((movie) => (
-              <MovieCard
+              <SimilarCard
                 key={movie.id}
                 movie={movie}
-                className="similarCard"
                 // onMovieClick={(newSelectedMovie) => {
                 //   setSelectedMovie(newSelectedMovie);
                 // }}
@@ -184,7 +325,7 @@ export const MovieView = ({ movies }) => {
           <h2>{similarMoviesActor.length > 0 ? "Other Movies with the Actor(s):" : ""}</h2>
           <Slider {...settings}>
             {similarMoviesActor.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} className="similarCard" />
+              <SimilarCard key={movie.id} movie={movie} />
             ))}
           </Slider>
           <h2>
@@ -192,7 +333,7 @@ export const MovieView = ({ movies }) => {
           </h2>
           <Slider {...settings}>
             {similarMoviesAuthor.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} className="similarCard" />
+              <SimilarCard key={movie.id} movie={movie} />
             ))}
           </Slider>
         </Col>
@@ -218,5 +359,5 @@ MovieView.propTypes = {
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
     }),
-  }).isRequired,
+  }),
 };
