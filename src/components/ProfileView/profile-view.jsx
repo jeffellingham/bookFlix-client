@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { AiOutlineHeart, AiOutlineEyeInvisible } from "react-icons/ai";
 import "./profile-view.scss";
 import { MovieCard } from "../MovieCard/movie-card";
 import { SimilarCard } from "../MovieCard/similar-card";
@@ -16,6 +17,10 @@ import { SimilarCard } from "../MovieCard/similar-card";
 
 export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
   // const [user, setUser] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [birthday, setBirthday] = useState("");
 
   const favoriteMoviesList = movies.filter((m) => {
     return user.favoriteMovies.includes(m.id);
@@ -24,7 +29,14 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
     return user.watchList.includes(m.id);
   });
 
-  console.log(user);
+  useEffect(() => {
+    if (user) {
+      setUsername(user.username);
+      setEmail(user.email);
+      setPassword(user.password);
+      setBirthday(user.birthday);
+    }
+  }, [user]);
 
   const handleUserUpdate = (event) => {
     event.preventDefault();
@@ -52,9 +64,9 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
       .then((data) => {
         console.log(data);
         setUser(data);
-        // localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("user", JSON.stringify(data));
         alert("Successfully updated user info!");
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error updating your info:", error);
@@ -68,20 +80,15 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
     fetch(`https://book-flix-cd27bc1b730d.herokuapp.com/users/${user.username}`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          onLogout();
+        } else {
+          alert("Error deleting your account!");
         }
-      })
-      .then((data) => {
-        console.log(data);
-        alert("Successfully deleted user account!");
-        // onLogout();
-        window.location.reload();
       })
       .catch((error) => {
         console.error("Error deleting your account:", error);
@@ -121,15 +128,14 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
         </Col>
         <Col md={6}>
           <h3>Update your info</h3>
-          <Form onSubmit={(e) => handleUserUpdate(e, updatedUserInfo)}>
+          <Form onSubmit={handleUserUpdate}>
             <Form.Group controlId="formUsername">
               <Form.Label>Username:</Form.Label>
               <Form.Control
                 type="text"
-                // defaultValue={user.username}
                 name="username"
                 placeholder="Enter new username..."
-                onChange={(e) => setUser({ ...user, username: e.target.value })}
+                onChange={(e) => setUsername({ ...user, username: e.target.value })}
                 minLength={3}
                 // required
               />
@@ -140,28 +146,22 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
                 type="password"
                 name="password"
                 placeholder="Enter new password..."
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
             <Form.Group controlId="formEmail">
               <Form.Label>Email:</Form.Label>
               <Form.Control
                 type="email"
-                // defaultValue={user.email}
                 placeholder="Enter new email address..."
                 name="email"
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                onChange={(e) => setEmail(e.target.value)}
                 // required
               />
             </Form.Group>
             <Form.Group controlId="formBirthday" className="mb-3">
               <Form.Label>Birthday:</Form.Label>
-              <Form.Control
-                type="date"
-                // value={user.birthday}
-                name="birthday"
-                onChange={(e) => setUser({ ...user, birthday: e.target.value })}
-              />
+              <Form.Control type="date" name="birthday" onChange={(e) => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="success" type="submit">
               Submit
@@ -181,7 +181,13 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
             );
           })
         ) : (
-          <p>You haven't added any favorites yet. Sad :(</p>
+          <p style={{ textAlign: "center" }}>
+            If any movies are among your favorites, click their{" "}
+            <AiOutlineHeart
+              style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
+            />{" "}
+            icon and they'll appear here!
+          </p>
         )}
       </Row>
       <hr />
@@ -196,7 +202,13 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
             );
           })
         ) : (
-          <p>You've watched every movie or haven't added any to your watchlist yet.</p>
+          <p style={{ textAlign: "center" }}>
+            If there's any movies you want to watch, click their{" "}
+            <AiOutlineEyeInvisible
+              style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
+            />{" "}
+            icon and they'll appear here!
+          </p>
         )}
       </Row>
     </Container>
