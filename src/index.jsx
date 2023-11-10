@@ -13,11 +13,6 @@ const BookFlixApplication = () => {
       <MainView />
     </Container>
   );
-  //(
-  //   <div className="book-flix">
-  //     <div>Good morning, movie and book lovers!</div>
-  //   </div>
-  // );
 };
 
 // Finds the root of my app

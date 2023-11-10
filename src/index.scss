@@ -9,6 +9,9 @@
 // TODO: 7. Add a sidebar to all pages that shows the user's top 10(?) movies (top 10 rated? I guess I could add another parameter to the favoriteMovies list (maybe have to make it an object? So each movie on favorite list has the movie id and/or title, and the user's rating (or a default of null)), or I can just make it so they can change the order of the movies in their favorite list and render the top 10 based on that order).
 // TODO: 8. Could I add a recommended movies list based off of a user's favorite movies? Like, people who favorited X movie also favorited Y and Z. This seems pretty high level for me
 // TODO: 9. A Navbar component using react-bootstrap
+// TODO: 10. Add button to each movie's MovieView that links to the movie's preview on YouTube
+// TODO: 11. Add alerts for when a movie is favorited or unfavorited, could use something called sweetalert2 (plugin? library?)
+// TODO: 12. Maybe make the movieCard display just the movie poster until the user hovers, then show the movie info. I like this idea, cause it'd be a solution to each movie poster being the same size.
 
 $color: black;
 $bgColor: rgba(199, 247, 227, 0.6);
@@ -20,7 +23,6 @@ $secondaryBGMixer: rgba(119, 136, 153, 0.575);
 
 #root {
   background: linear-gradient(to right, $primaryBGMixer, $secondaryBGMixer 20%, $secondaryBGMixer 80%, $primaryBGMixer);
-  // background-color: $primaryBGMixer;
   // font-family: 'Mouse Memoirs', sans-serif;
   font-family: 'Roboto', sans-serif;
   width: 100%;
@@ -37,9 +39,6 @@ $secondaryBGMixer: rgba(119, 136, 153, 0.575);
   margin: 0;
 }
 
-.movieCard:hover {
-  background-color: rgba(184, 181, 181, 0.8);
-}
 
 /* ------------MEDIA QUERIES---------------*/
 

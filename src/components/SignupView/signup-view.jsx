@@ -36,8 +36,11 @@ export const SignupView = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} style={{ height: "75vh" }} className="mt-5 mb-5">
       <Form.Group controlId="formUsername">
+        <h1 className="text-center" style={{ color: "seagreen" }}>
+          Sign up for a free account!
+        </h1>
         <Form.Label>Username:</Form.Label>
         <Form.Control
           type="text"
@@ -64,7 +67,7 @@ export const SignupView = () => {
         <Form.Label>Birthday:</Form.Label>
         <Form.Control type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
       </Form.Group>
-      <Button variant="success" type="submit">
+      <Button variant="success" type="submit" className="mt-3">
         Submit
       </Button>
     </Form>

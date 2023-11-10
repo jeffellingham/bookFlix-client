@@ -1,26 +1,47 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./nav-bar.scss";
 
 export const NavBar = ({ user, onLogout }) => {
   return (
-    <Navbar collapseOnSelect expand="md" className="mb-5" sticky="top">
-      <Container className="navbar-container justify-content-between">
-        <Nav className="logo">
-          {/* Create img for logo then wrap subtitle in navbar.brand */}
-          <Navbar.Brand href="/">
+    <Navbar collapseOnSelect expand="md" sticky="top">
+      <Container className="navbar-container">
+        <Col className="col-auto me-auto">
+          <Navbar.Brand as={Link} to="/" className="logo">
             <img src={require("../../img/bookFlixTitle.png")} alt="logo" className="align-top logo" />
           </Navbar.Brand>
-        </Nav>
-        <Nav>
+        </Col>
+        <Col className="col-auto burgerContainer align-self-center">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Navbar.Text>Welcome, {user.username}</Navbar.Text>
-            <Nav.Link href="#">• Account •</Nav.Link>
-            <button className="logoutButton" onClick={onLogout}>
-              Logout
-            </button>
+            <Nav>
+              {!user && (
+                <>
+                  <Nav.Link as={Link} to="/login">
+                    Login
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/signup">
+                    Signup
+                  </Nav.Link>
+                </>
+              )}
+              {user && (
+                <>
+                  {/* <Navbar.Text>
+                    <strong>Welcome, {user.username}! </strong>
+                  </Navbar.Text> */}
+                  <Nav.Link as={Link} to="/">
+                    Home
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/profile">
+                    Profile
+                  </Nav.Link>
+                  <Nav.Link onClick={onLogout}>Logout</Nav.Link>
+                </>
+              )}
+            </Nav>
           </Navbar.Collapse>
-        </Nav>
+        </Col>
       </Container>
     </Navbar>
   );

@@ -1,30 +1,30 @@
-$boxColor: rgba(230, 230, 230, 0.5);
 
+$secondaryBGMixer: rgba(156, 169, 182, 0.7);
+$primaryColor: seagreen;
 
-
-.movieviewInfo {
-  font-size: 1.35em;
-  line-height: 1.2em;
+.searchContainer {
+  flex-direction: column;
 }
 
-.movieviewInfo div:nth-child(odd) {
-  margin: 12px 0;
+input.search-bar, select.filter-bar {
+  max-width: 300px !important;
+  margin: 5px auto;
+  border-color: $primaryColor !important;
+  // color: $primaryColor !important;
 }
-.movieviewInfo-containers span:first-of-type, .movieviewInfo strong {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.searchBar {
-  display: inline-flex;
-  margin-bottom: 20px;
-  width: 200px;
-  height: auto;
-}
-
 
 .movieCard:hover {
   animation: .5s cardPop;
+  cursor: pointer;
+}
+
+.loading {
+  font-size: 42px;
+  font-weight: bold;
+  color: $primaryColor;
+  text-align: center;
+  padding-top: 100px;
+  height: 100vh;
 }
 
 @keyframes cardPop {
