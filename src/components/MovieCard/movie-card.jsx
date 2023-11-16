@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiFillHeart, AiOutlineHeart, AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -142,9 +141,6 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
             <SiRottentomatoes size="17px" className="tomato" />
             {movie.tomatoRating.rating}% • {movie.genre.name} • {movie.duration}
           </Card.Subtitle>
-          {/* <Card.Text className="movieCard__description d-inline-block text-truncate">
-          {movie.description}
-        </Card.Text> */}
         </Card.Body>
       </Link>
     </Card>

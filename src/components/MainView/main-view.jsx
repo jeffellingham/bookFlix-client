@@ -22,8 +22,8 @@ export const MainView = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("");
-  // const [selectedMovie, setSelectedMovie] = useState(null);
 
+  // An array of all genres for my filter function
   const genres = [];
   movies.forEach((movie) => {
     if (genres.indexOf(movie.genre.name) === -1) {
@@ -36,11 +36,6 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
-
-  // const updateUser = (user) => {
-  //   setUser(user);
-  //   localStorage.setItem("user", JSON.stringify(user));
-  // };
 
   useEffect(() => {
     if (!token) return;
@@ -157,7 +152,7 @@ export const MainView = () => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    {/* Set up a dropdown menu populated with each genre that I can filter the movies by */}
+                    {/* Set up a dropdown menu populated with each movie genre I can filter by */}
                     <Form.Select
                       className="filter-bar"
                       onChange={(e) => setFilterTerm(e.target.value)}
@@ -211,11 +206,6 @@ export const MainView = () => {
                             <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
                           </Col>
                         ))}
-                      {/* {movies.map((movie) => (
-                        <Col key={movie.id} sm={6} md={4} lg={3} className="mb-3 cardContainer">
-                          <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
-                        </Col>
-                      ))} */}
                     </>
                   )}
                 </>

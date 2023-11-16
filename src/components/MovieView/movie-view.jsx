@@ -172,8 +172,6 @@ export const MovieView = ({ movies, user, token, setUser }) => {
     slidesToScroll: 4,
     initialSlide: 0,
     swipeToSlide: true,
-    // nextArrow: <slickNextArrow />,
-    // prevArrow: <slickPrevArrow />,
     responsive: [
       {
         breakpoint: 1200,
@@ -312,13 +310,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
           </h2>
           <Slider {...settings}>
             {similarMoviesDirector.map((movie) => (
-              <SimilarCard
-                key={movie.id}
-                movie={movie}
-                // onMovieClick={(newSelectedMovie) => {
-                //   setSelectedMovie(newSelectedMovie);
-                // }}
-              />
+              <SimilarCard key={movie.id} movie={movie} />
             ))}
           </Slider>
 
