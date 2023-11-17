@@ -126,7 +126,7 @@ export const MovieView = ({ movies, user, token, setUser }) => {
   };
 
   //Setting up the arrays for similar movie sections (genre, director, actor, author)
-  actorString = "";
+  let actorString = "";
   if (movie.actors.length > 1) {
     for (let i = 0; i < movie.actors.length; i++) {
       if (i === movie.actors.length - 1) {
