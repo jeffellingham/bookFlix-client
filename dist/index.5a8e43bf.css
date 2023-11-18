@@ -13677,17 +13677,13 @@ div.movieviewInfo h1, div.movieviewInfo .h1 {
   height: 100%;
 }
 
-.slick-list {
-  margin: 0 -50px;
-}
-
 div.slick-slider {
   flex-direction: column;
   display: flex;
 }
 
 .slick-slide {
-  margin-bottom: 25px;
+  margin: 0 3px 25px;
   height: inherit !important;
   display: flex !important;
 }
@@ -40240,6 +40236,10 @@ h4, .h4 {
 .delete-account {
   flex-direction: column;
   align-items: center;
+}
+
+.profileCard-container {
+  margin-bottom: 5px;
 }
 
 :root, [data-bs-theme="light"] {

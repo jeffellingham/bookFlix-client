@@ -168,7 +168,7 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
         {user.favoriteMovies.length > 0 ? (
           favoriteMoviesList.map((movie) => {
             return (
-              <Col md={3} key={movie.id}>
+              <Col sm={6} md={4} lg={3} key={movie.id} className="profileCard-container">
                 <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
               </Col>
             );
@@ -189,7 +189,7 @@ export const ProfileView = ({ user, movies, token, setUser, onLogout }) => {
         {user.watchList.length > 0 ? (
           watchlistList.map((movie) => {
             return (
-              <Col md={3} key={movie.id}>
+              <Col sm={6} md={4} lg={3} key={movie.id} className="profileCard-container">
                 <MovieCard movie={movie} user={user} token={token} setUser={setUser} />
               </Col>
             );

@@ -120,9 +120,9 @@ div.movieviewInfo h1 {
   width: 100%;
 }
 
-.slick-list {
-  margin: 0 -50px;
-}
+// .slick-list {
+//   margin: 0 -50px;
+// }
 
 div.slick-slider {
   display: flex;
@@ -132,7 +132,7 @@ div.slick-slider {
 .slick-slide {
   height: inherit !important;
   display: flex !important;
-  // margin: 0 3px;
+  margin: 0 3px;
   margin-bottom: 25px;
 }
 

@@ -34,4 +34,12 @@ h4 {
   align-items: center;
 }
 
+.profileCard-container {
+  margin-bottom: 5px;
+}
+
+// .profileCard-container > .movieCard > a > .card-img-top {
+//   height: 80% !important;
+// }
+
 @import '~bootstrap/scss/bootstrap.scss';
