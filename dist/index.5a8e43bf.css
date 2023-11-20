@@ -13622,9 +13622,10 @@ div.movieViewContainer {
 }
 
 .movieviewSimilar h2:first-of-type, .movieviewSimilar .h2:first-of-type {
-  border-top: 3px solid #2e8b57;
-  border-radius: 5px 5px 0 0;
+  border-top: 2px solid #708090;
+  border-radius: 3px 3px 0 0;
   margin-top: 30px;
+  padding-top: 10px;
 }
 
 div.movieviewSimilar {
