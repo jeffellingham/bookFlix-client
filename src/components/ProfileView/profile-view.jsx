@@ -3,12 +3,12 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { AiOutlineHeart, AiOutlineEyeInvisible } from "react-icons/ai";
 import "./profile-view.scss";
 import { MovieCard } from "../MovieCard/movie-card";
-import { SimilarCard } from "../MovieCard/similar-card";
 
 // TODO: 3 sections that I can make components for are user information, a form for editing user information, and a list of user's favorite movies.
 // TODO: I definitely think I should make a component for at least the favorite movies section, because I'd still like to try to add it as a sidebar to MainView and MovieView (tablet and desktop sizes at least).----Using it for the sidebar wouldn't likely work.
 // TODO: I'd also like to make the favorite's list customizable by the user so they can order it and rank them according to their personal preferences.
-// TODO: The idea of allowing users to rank each movie is also still something I'd like to try, and that would factor into the ranking system as well. It'd be the default sorting/ranking criteria, then the user could order the movies that have the same ranking otherwise throw an error and be prompted to rank the movie higher if they want to order it that way?
+// TODO: The idea of allowing users to rate each movie is also still something I'd like to try, and that would factor into the ranking system as well. It'd be the default sorting/ranking criteria, then the user could order the movies that have the same ranking otherwise throw an error and be prompted to rank the movie higher if they want to order it that way?
+// !: The rating system would be something of an undertaking, but I could easily allow users to rank their favorite movies on their profile page by using the component react-draggable, https://www.npmjs.com/package/react-draggable, making each movieCard component a draggable card.
 // TODO!: Another cool thing I could do is to add the ability on the main page for users to filter out movies that they've favorited and/or ranked and only see unwatched movies. Obviously to also have an option to see only the movies on their watchlist (which a full list of will be located on their profile page).---There should be two checkbox options for each group: only favorites/only non-favorited and only watchlist/only non-watchlist. Does that make sense..?
 // TODO: Maybe create another separate Card component for the favorite movie's list cards and experiment with different styles, such as having the posters smaller and to the left with all the information, including the description, to the right. That would make it far more like a list and help if I do set up the ranking/rating system.
 

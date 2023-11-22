@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { SiRottentomatoes } from "react-icons/si";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./movie-card.scss";
 
 // Exporting moviecard function component

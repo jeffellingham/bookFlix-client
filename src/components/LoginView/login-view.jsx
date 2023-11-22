@@ -44,7 +44,9 @@ export const LoginView = ({ onLoggedIn }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h1 className="mt-5 text-center">Welcome back!</h1>
+      <h1 className="mt-5 text-center" style={{ color: "seagreen" }}>
+        Welcome back!
+      </h1>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control

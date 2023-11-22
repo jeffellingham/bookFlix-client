@@ -41,6 +41,10 @@ export const SignupView = () => {
         <h1 className="text-center" style={{ color: "seagreen" }}>
           Sign up for a free account!
         </h1>
+        <p className="text-center mb-0">Your data is safe with us, and we'll never email you.</p>
+        <p className="text-center">
+          Already have an account? <a href="/login">Login</a>
+        </p>
         <Form.Label>Username:</Form.Label>
         <Form.Control
           type="text"
