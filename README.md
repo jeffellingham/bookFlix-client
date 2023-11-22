@@ -7,9 +7,15 @@ To build the client-side portion of my web application for discovering movies ba
 ## Features
 
 - Created with React framework.
-- Connected to a NoSQL MongoDB database I built and restricted with a CORS policy.
-  - You can view the backend code I wrote in Express in [this repository](https://github.com/jeffellingham/bookFlix_api).
-- Used the [Parcel](https://parceljs.org/) bundler/build tool, .
+- User can:
+  - Create an account
+  - Update or delete their account
+  - View data on 75+ movies based on books, and search by name or filter by genre
+  - Add their favorite movies to a favorites list
+  - Add movies they haven't seen to a watchlist
+- Connected to a MongoDB database I built and restricted with a CORS policy.
+  - You can view the backend code I wrote in Express/Node.js in [this repository](https://github.com/jeffellingham/bookFlix_api).
+- Used the [Parcel](https://parceljs.org/) bundler/build tool.
 - Partially styled with the help of [React-Bootstrap](https://react-bootstrap.github.io/).
 
 ## Link to app
@@ -22,6 +28,7 @@ View the Netlify hosted app [here](https://bookflixapp.netlify.app/).
 
 I'd like to thank everyone who helped create the movies showcased on my web app, and an even bigger thanks to the authors who first created the worlds and characters through their words.
 I also want to thank Heroku for hosting my API, MongoDB for their streamlined database creation process, Netlify for hosting the clientside application, the React team at Facebook for creating a maintaining such an incredible framework to work within, and all the other tools and their teams that helped bring this app to life.
+
 Lastly, I'd like to thank CareerFoundry for guiding me through the entire process, my tutor Jubril for helping me every step of the way, and my mentor Paulo for providing a higher-level perspective of what I created.
 
 To learn more about me and see my portfolio of other projects, please visit [my website](https://jeffellingham.github.io/)!
