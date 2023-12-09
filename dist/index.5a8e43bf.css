@@ -27002,6 +27002,11 @@ textarea.form-control-lg {
   }
 }
 
+.form-label {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -40215,6 +40220,11 @@ h3, .h3 {
   -webkit-text-decoration: underline #2e8b57;
   text-decoration: underline #2e8b57;
   text-decoration-thickness: 3px;
+}
+
+.form-label {
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
 }
 
 .profile-info {

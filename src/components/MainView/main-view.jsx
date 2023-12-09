@@ -8,6 +8,7 @@ import { NavBar } from "../NavBar/nav-bar";
 import { Row, Col, Container, Spinner, Form } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Slider from "react-slick";
+import debounce from "lodash.debounce";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./main-view.scss";
@@ -36,6 +37,11 @@ export const MainView = () => {
     setToken(null);
     localStorage.clear();
   };
+
+  // Ensure there's a slight delay before searching
+  const handleSearch = debounce((searchValue) => {
+    setSearchTerm(searchValue);
+  }, 500);
 
   useEffect(() => {
     if (!token) return;
@@ -150,7 +156,7 @@ export const MainView = () => {
                       placeholder="Search..."
                       className="search-bar"
                       value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
+                      onChange={(e) => handleSearch(e.target.value)}
                     />
                     {/* Set up a dropdown menu populated with each movie genre I can filter by */}
                     <Form.Select
