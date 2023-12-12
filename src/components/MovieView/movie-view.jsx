@@ -221,22 +221,26 @@ export const MovieView = ({ movies, user, token, setUser }) => {
                 <AiFillHeart
                   style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
                   onClick={handleRemoveFavorite}
+                  className="icon"
                 />
               ) : (
                 <AiOutlineHeart
                   style={{ color: "seagreen", width: "30px", height: "30px" }}
                   onClick={handleAddFavorite}
+                  className="icon"
                 />
               )}
               {onWatchlist ? (
                 <AiFillEye
                   style={{ color: "seagreen", width: "30px", height: "30px" }}
                   onClick={handleRemoveFromWatchlist}
+                  className="icon"
                 />
               ) : (
                 <AiOutlineEyeInvisible
                   style={{ color: "seagreen", width: "30px", height: "30px" }}
                   onClick={handleAddToWatchlist}
+                  className="icon"
                 />
               )}
             </Col>

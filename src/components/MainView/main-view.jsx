@@ -8,7 +8,7 @@ import { NavBar } from "../NavBar/nav-bar";
 import { Row, Col, Container, Spinner, Form } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Slider from "react-slick";
-import debounce from "lodash.debounce";
+// import debounce from "lodash.debounce";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./main-view.scss";
@@ -38,10 +38,53 @@ export const MainView = () => {
     localStorage.clear();
   };
 
-  // Ensure there's a slight delay before searching
-  const handleSearch = debounce((searchValue) => {
-    setSearchTerm(searchValue);
-  }, 500);
+  // TODO: Add debouncing to search
+  // My various attempts at debouncing...
+  // const handleSearch = debounce((searchValue) => {
+  //   setSearchTerm(searchValue);
+  // }, 500);
+
+  // const fakeApi = () => console.log("Api is called");
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     fakeApi();
+  //   }, 500);
+  //
+  //   return () => clearTimeout(timer);
+  // }, [searchTerm]);
+
+  // const [timer, setTimer] = useState(null);
+  // const handleChange = (e) => {
+  //   setSearchTerm(e.target.value);
+  //   clearTimeout(timer);
+  //   const newTimer = setTimeout(() => {
+  //     fakeApi();
+  //   }, 500);
+  //   setTimer(newTimer);
+  // };
+
+  // let searchBar = document.querySelector(".search-bar");
+  // let timeout;
+
+  // searchBar.addEventListener("keyup", (e) => {
+  //   clearTimeout(timeout);
+  //   timeout = setTimeout(() => {
+  //     setSearchTerm(e.target.value);
+  //   }, 500);
+  // });
+
+  // let timeoutId;
+  // const handleSearch = (searchValue) => {
+  //   clearTimeout(timeoutId);
+  //   timeoutId = setTimeout(() => {
+  //     setSearchTerm(searchValue);
+  //   }, 500);
+  // };
+
+  // const handleChange = (e) => {
+  //   const searchValue = e.target.value;
+  //   handleSearch(searchValue);
+  // };
 
   useEffect(() => {
     if (!token) return;
@@ -156,7 +199,10 @@ export const MainView = () => {
                       placeholder="Search..."
                       className="search-bar"
                       value={searchTerm}
-                      onChange={(e) => handleSearch(e.target.value)}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      // onChange={handleChange}
+                      // onChange={(e) => handleSearch(e.target.value)}
+                      id="movie-search"
                     />
                     {/* Set up a dropdown menu populated with each movie genre I can filter by */}
                     <Form.Select

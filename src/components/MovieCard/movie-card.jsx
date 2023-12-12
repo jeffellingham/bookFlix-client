@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Card } from "react-bootstrap";
+import { Card, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AiFillHeart, AiOutlineHeart, AiFillEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { SiRottentomatoes } from "react-icons/si";
@@ -112,22 +112,30 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
             <AiFillHeart
               style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
               onClick={handleRemoveFavorite}
+              className="icon"
+              title="Remove from favorites"
             />
           ) : (
             <AiOutlineHeart
               style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
               onClick={handleAddFavorite}
+              className="icon"
+              title="Add to favorites"
             />
           )}
           {onWatchlist ? (
             <AiFillEye
               style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
               onClick={handleRemoveFromWatchlist}
+              className="icon"
+              title="Remove from watchlist"
             />
           ) : (
             <AiOutlineEyeInvisible
               style={{ color: "seagreen", width: "30px", height: "30px", fontWeight: "bold" }}
               onClick={handleAddToWatchlist}
+              className="icon"
+              title="Add to watchlist"
             />
           )}
         </Card.ImgOverlay>
